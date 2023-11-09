@@ -1,0 +1,12 @@
+header{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-between;
+}
+header>div{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-around;
+}
