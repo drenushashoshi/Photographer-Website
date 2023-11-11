@@ -1,0 +1,33 @@
+@media (max-width: 768px) {
+    /* Styles for screens up to 768 pixels wide */
+}
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.pages ul {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pages ul li {
+    margin-left: 150px;
+    color: black;
+    text-align: center;
+    font-family: sans-serif;
+}
+.pages ul li a{
+    text-decoration: none;
+    color: black;
+}
