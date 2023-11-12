@@ -1,100 +1,110 @@
-body{
-    box-sizing: border-box;
-    width: 100%;
-    height: max-content;
-  }
-header {
-    display: flex;
-    position: fixed;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 66px;
-    background-color: white;
-    z-index: 1000;
-    overflow: hidden;
-    opacity: 0.5;
-}
-header img{
-    width: 15%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    align-self: center;
-}
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+    body {
+        box-sizing: border-box;
+        width: 100%;
+        height: max-content;
+    }
 
-.pages ul {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    width: 85%;
-}
+    header {
+        display: flex;
+        position: fixed;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 66px;
+        background-color: white;
+        z-index: 1000;
+        overflow: hidden;
+        opacity: 0.8;
+    }
 
-.pages ul li {
-    margin-left: 150px;
-    color: black;
-    text-align: center;
-    font-family: sans-serif;
-    align-items: center;
-}
-.pages ul li a{
-    text-decoration: none;
-    color: black;
-    opacity: 1;
-}
-.bgphoto{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    opacity: 0.8;
-    background-image: url(ED_about_bg.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    height: 600px;
-    text-decoration: double gray;
-    margin-bottom: 20px;
-    margin-left: 0px;
-}
-.abm{
-    background-image: url(Wallpaper.png);
-    background-size: cover;
-    display: flex;
-    width: 100%;
-    height: fit-content;
-    justify-content: center;
-}
-.abm img{
-    width: 400px;
-    height: 600px;
-    margin: 30px;
-    position: relative;
-    top: 100px;
-    left: 200px;
+    header img {
+        width: 15%;
+        height: 60px;
+        margin: 0px;
+        padding: 0px;
+        align-self: center;
+    }
 
-}
-.textAbMe{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-family: sans-serif;
-    width: 900px;
-    height: fit-content;
-    margin: 50px;
-    overflow: hidden;
-    background-color: #b9b1a7;
-    right: 100px;
-    margin-right: 200px;
-    box-shadow: 10px 10px 5px 12px gainsboro;
-}
-.textAbMe p{
-    margin: 20px;
-    padding: 30px;
-    margin-left: 100px;
+    .pages ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        width: 85%;
+    }
+
+    .pages ul li {
+        margin-left: 150px;
+        color: black;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        align-items: center;
+    }
+
+    .pages ul li a {
+        text-decoration: none;
+        color: black;
+        opacity: 1;
+    }
+
+    .bgphoto {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        opacity: 0.8;
+        background-image: url(ED_about_bg.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        width: 100%;
+        height: 600px;
+        text-decoration: double gray;
+        margin-bottom: 20px;
+        margin-left: 0px;
+    }
+
+    .abm {
+        background-image: url(Wallpaper.png);
+        background-size: cover;
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        justify-content: center;
+    }
+
+    .abm img {
+        width: 400px;
+        height: 600px;
+        margin: 30px;
+        position: relative;
+        top: 100px;
+        left: 200px;
+
+    }
+
+    .textAbMe {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 900px;
+        height: 900px;
+        margin: 50px;
+        overflow: hidden;
+        background-color: #dfe0e096;
+        right: 100px;
+        margin-right: 200px;
+        box-shadow: 10px 10px 5px 12px rgba(100, 91, 91, 0.849);
+    }
+
+    .textAbMe p {
+        margin: 20px;
+        padding: 30px;
+        margin-left: 100px;
+    }
 }
