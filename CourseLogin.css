@@ -1,8 +1,8 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*{ 
+    margin: 0; 
+    padding: 0; 
+     box-sizing: border-box; 
+ } 
 header {
     display: flex;
     position: fixed;
@@ -46,23 +46,26 @@ header img{
     opacity: 1;
 }
 body {
-    background: rgba(165, 152, 152, 0.188);
-    font-family: 'Rubik', sans-serif;
+    background-image: url(CourseGif.gif);
   }
+ 
 .login-form{
-    background: #fff;
+    background-color: rgba(255, 252, 252, 0.493);
     width: 50%;
-    margin: 70px auto;
+    margin: 150px auto;
+    margin-top: 150px;
     padding: 12px 20px;
     display: flex;
     flex-direction: column;
     border-radius: 4px;
-    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.45);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
 }
 .login-form h1 {
     padding: 35px 35px 0 35px;
-    font-weight: 300;
+    font-weight: 200;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .content {
     padding: 35px;
@@ -74,10 +77,11 @@ body {
 .input-field input {
     font-size: 16px;
     display: block;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 100%;
     padding: 10px 1px;
     border: 0;
+    border-radius: 7px;
     border-bottom: 1px solid #747474;
 }
 
@@ -103,7 +107,7 @@ body {
     background: #d8d8d8;
 }
 .action button:nth-child(2) {
-    background: #2d3b55;
+    background:rgba(30, 30, 53, 0.915);
     color: #fff;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 10px;
@@ -111,3 +115,24 @@ body {
 .action button:nth-child(2):hover {
     background: #3c4d6d;
 }
+
+.Teksti{
+    width: 80%;
+    margin: 70px auto;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 2px 25px rgba(98, 96, 96, 0.45);
+    background-color: rgba(255, 252, 252, 0.428);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 19px;
+    border-style: inset;
+}
+.Teksti h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.Teksti h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
