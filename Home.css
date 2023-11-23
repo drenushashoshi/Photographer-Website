@@ -1,3 +1,8 @@
+*{ 
+    margin: 0; 
+    padding: 0; 
+     box-sizing: border-box; 
+ } 
 header {
     display: flex;
     position: fixed;
@@ -50,10 +55,6 @@ header img{
     background-attachment: fixed;
     width: 100%;
     height: 600px;
-    opacity: 70%;
-}
-.Background:hover{
-    opacity: 1.0;
 }
 .LatestWork{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -146,5 +147,32 @@ header img{
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
+footer{
+    background-color: rgb(194, 181, 191);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+.footermain{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+.adresa{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    font-size: 17px;
+    justify-content: space-around;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.footerfoto{
+    margin-left: 20px;
+    display: flex;
+    width: 170px;
+    align-items: flex-end; 
+}
 
