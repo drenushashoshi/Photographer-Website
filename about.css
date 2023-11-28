@@ -120,6 +120,7 @@ header img {
     padding-top: 0px;
     margin-left: 100px;
 }
+
 .travel {
     display: block;
     position: relative;
@@ -130,6 +131,8 @@ header img {
     padding: 10px;
     overflow: hidden;
     height: 680px;
+    flex-wrap: wrap;
+    opacity: 0.8;
 }
 
 .t1 {
@@ -322,6 +325,42 @@ header img {
     line-height: 23px;
     font-weight: bold;
 }
+
+.faq-container {
+    max-width: 90%;
+    margin: 50px auto;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Work Sans', sans-serif;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.question {
+    font-weight: bold;
+    color: #5A4B2E;
+    font-size: 18px;
+}
+
+.answer {
+    color: #666666;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+#faq {
+    font-family: 'Work Sans', sans-serif;
+    border-top: 1px solid #5A4B2E;
+    border-bottom: 1px solid #5A4B2E;
+    background-image: url(About_Pictures/bg-faq.png);
+    opacity: 0.8;
+    padding: 10px;
+}
+
 @media screen and (max-width: 1000px) {
     .abm {
         padding: 20px;
@@ -347,16 +386,19 @@ header img {
         text-align: left;
         padding: 10px;
     }
-    .textAbMe p{
-       margin-top: 2%;
-       margin-left: 2%;
-       padding: 5%;
-       padding-top: 10%;
-       width: 35%;
-       overflow: auto;
-       background-color: #F6F6F6;
+
+    .textAbMe p {
+        margin-top: 2%;
+        margin-left: 2%;
+        padding: 5%;
+        padding-top: 10%;
+        width: 35%;
+        overflow: auto;
+        background-color: #F6F6F6;
     }
-    .textAbMe h1{
+
+    .textAbMe h1 {
         display: none;
     }
+
 }
