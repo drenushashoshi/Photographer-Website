@@ -120,7 +120,6 @@ header img {
     padding-top: 0px;
     margin-left: 100px;
 }
-
 .travel {
     display: block;
     position: relative;
@@ -280,13 +279,15 @@ header img {
     justify-content: center;
     height: 600px;
 }
-#titlebest{
+
+#titlebest {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 40px;
     color: #5A4B2E;
 }
-.bestdivs{
+
+.bestdivs {
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -294,7 +295,8 @@ header img {
     justify-content: center;
     flex-direction: row;
 }
-.bestdivs div{
+
+.bestdivs div {
     width: 25%;
     height: 80%;
     margin: 30px;
@@ -303,12 +305,14 @@ header img {
     align-items: center;
     justify-content: center;
 }
-.bestdivs img{
+
+.bestdivs img {
     width: 100%;
     height: 80%;
 
 }
-.bestdivs div p{
+
+.bestdivs div p {
     width: 90%;
     height: 20%;
     text-align: center;
@@ -317,4 +321,42 @@ header img {
     color: #5A4B2E;
     line-height: 23px;
     font-weight: bold;
+}
+@media screen and (max-width: 1000px) {
+    .abm {
+        padding: 20px;
+        /* Add padding for spacing on smaller devices */
+        display: flexbox;
+        flex-direction: column;
+        width: 400em;
+    }
+
+    .abm img {
+        display: none;
+    }
+
+    .textAbMe {
+        width: 100%;
+        margin: auto;
+        padding: 0px;
+        background-image: url(About_Pictures/ElaDoe.jpeg);
+        background-size: cover;
+        background-position-x: 60%;
+        background-repeat: no-repeat;
+        opacity: 0.9;
+        text-align: left;
+        padding: 10px;
+    }
+    .textAbMe p{
+       margin-top: 2%;
+       margin-left: 2%;
+       padding: 5%;
+       padding-top: 10%;
+       width: 35%;
+       overflow: auto;
+       background-color: #F6F6F6;
+    }
+    .textAbMe h1{
+        display: none;
+    }
 }
