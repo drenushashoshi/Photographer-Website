@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElaDoePhoto</title>
     <link rel="stylesheet" href="Home.css">
+    <style>
+        .slider {
+            overflow: hidden;
+            width: 100%;
+            height: 650px;
+            position: relative;
+            display: flex;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: 1;
+            transition: transform 1s ease-in-out; 
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            order: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,176 +42,272 @@
             </ul>
         </div>
     </header>
-
     <main>
-        <div class="Background"> </div>
-
-        <div class="LatestWork">
-            <h1><b>SOME OF MY LATEST WORK</b></h1>
+        <div class="slide-content">
+            <h1>Ela Doe</h1>
+            <p>Capturing moments</p>
         </div>
-
-        <div class="fotot">
-            <div class="section">
-                <img src="LatestWork1.jpg" alt="" class="foto">
-                <img src="LatestWork2.jpg" alt="" class="foto">
-                <img src="LatestWork3.jfif" alt="" class="foto">
-            </div>
-            <div class="section">
-                <img src="LatestWork4.jpg" alt="" class="foto">
-                <img src="LatestWork5.jpg" alt="" class="foto">
-                <img src="LatestWork6.jpg" alt="" class="foto">
-            </div>
-            <div class="section">
-                <img src="LatestWork7.jpg" alt="" class="foto">
-                <img src="LatestWork8.jfif" alt="" class="foto">
-                <img src="LatestWork9.jpeg" alt=""class="foto">
-            </div>
-            <div class="section">
-                <img src="LatestWork9.jpeg" alt=""class="foto">
-                <img src="LatestWork10.jfif" alt="" class="foto">
-                <img src="LatestWork11.jpg" alt="" class="foto">
-                
-            </div>
-             
-            <div class="section"></div>
-                <img src="LatestWork12.jpg" alt="" class="foto" >
-                <img src="LatestWork13.jpg" alt="" class="foto">
-                <img src="LatestWork14.jpg" alt="" class="foto">
-            </div>
-
-        </div>
-
-        <div class="butoni">
-            <button><a href="Portofolio.html">More Recent Work</a></button>
-        </div>
-        
-        <br>
-        <div class="MoreStories">
-            <div class="title">
-                <h1><b>MORE STORIES</b></h1>
-            </div>
-            <fieldset>
-                <div class="blogs">
-                    <img src="MoreStories1.png" alt="">
-                    <div class="Stories">
-                        <h2>Allie and Jayce’s Downtown Austin Engagement Session</h2>
-                        <p>Allie and Jayce wanted their engagement session to encapsulate their time in Austin together. 
-                            The place they shared their first home, where they spent their Friday nights
-                            at their favorite Mexican restaurant and the park they take their dogs. 
-                            They documented their engagement season under the Austin Skyline, 
-                            after grabbing margs and queso at their go-to Friday night spot.
-                        </p>
-                    </div>  
-
-                </div>
-                <br>
-                <div class="blogs">
-                    <img src="MoreStories2.png" alt="">
-                        <div class="Stories">
-                            <h2>Jenna and Ryan’s Blanc Denver Wedding</h2>
-                            <p>
-                                Jenna and Ryan shared their love in Denver, 
-                                Colorado in a fun and colorful celebration with their friends and family and one wedding crasher too. 
-                                They got ready at the CatBird Hotel in downtown Denver. 
-                                We had planned to go up to the rooftop of the hotel to capture their first look and wedding party 
-                                photos and stumbled upon a 300 person swingers party and an incoming rain storm.
-                            </p>
-                        </div>
-                </div>
-                <br>
-                <div class="blogs">
-                    <img src="MoreStories3.png" alt="">
-                        <div class="Stories">
-                            <h2>Seth and Jordan’s boho summer farm wedding</h2>
-                            <p>
-                                In the foothills of Denver, Colorado, at a flower farm, 
-                                Seth and Jordan celebrated their love with all of their friends and family. 
-                                Lyons Farmette provided the perfect backdrop for a beautiful summer day in Colorado. 
-                                The sun shone brightly all day, covering the farm in the warmest light. 
-                                Flowers, just starting to bloom, and lush grass covered the farm. 
-                                Perfect for Jordan's barefoot wedding dreams.
-                            </p>
-                        </div>
-                </div>
-            </fieldset>
-        </div>
-        <br>
-        <div class="Sayings">
-            <h1><b>WHAT CLINTS HAVE TO SAY</b></h1>
-            <fieldset>
-                <div class="WhatTheySay">
-                    <img src="WhatClientsHaveToSay.jpg" alt="">
-                    <div class="teksti">
-                        <h3>Hayley + Kit</h3>
-                        <p>Where do I start? Ela is the absolute best and we felt like we scored big time 
-                            having her with us on our wedding day. Her photos speak for themselves 
-                            but the woman behind the camera is equally as amazing. 
-                            She was gracious with our guests (parents) that felt like they needed their own iphone pictures, 
-                            always responsive, was everywhere on our wedding day (without us even noticing half of the time), 
-                            was responsive and helpful in the planning process, 
-                            and honestly just someone my husband and I would want to be friends with in real life. 
-                            We are so grateful for Ela!
-                        </p>
-                    </div>
-                </div>
-                <br>
-                <div class="WhatTheySay">
-                    <img src="WhatClientsHaveToSay2.png" alt="">
-                    <div class="teksti">
-                        <h3>Brock + Wajiha</h3>
-                        <p>There aren’t enough positive things to say about Sarah. She photographed two days of
-                             my south Asian wedding and she captured the joy so beautifully! 
-                             I know how nerve-racking it can be to make a final decision on a photographer, 
-                             but look no further. Sarah engenders trust like no other. 
-                             She has a quiet and calming presence, which is so helpful to have on your wedding day!
-                             My husband and I are not comfortable in front of the camera, 
-                             but Sarah made us look like naturals. 
-                             I received so many compliments on my photos. 
-                             Of all the vendor decisions I made during the course of wedding planning, 
-                             deciding on a Sarah E. Photography was the best one I made!
-                        </p>
-                    </div>
-                </div>
-                <br>
-                <div class="WhatTheySay">
-                    <img src="WhatClientsHaveToSay3.png" alt="">
-                    <div class="teksti">
-                        <h3>Leo + JoAnn</h3>
-                        <p>Sarah is the BEST photographer we have ever encountered! 
-                            I can't tell you enough how many times we have seen the pictures over and over 
-                            and the many compliments we have received over the pictures. 
-                            Seriously best money we have EVER spent! Sarah called us about two weeks before 
-                            the wedding to make a timeline and the day of the wedding, 
-                            she made sure everything we had planned came out a reality. 
-                            Our family loved her! We are so THANKFUL!! This is an understatement of just how 
-                            awesome she is and how amazing her talent is! Seriously, everyone NEEDS to hire her asap! 
-                            Like now, Do it!
-                        </p>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="Aboutme">
-            <h1><b>ABOUT ME</b></h1>
-            <fieldset>
-                <div class="LittleAboutMe">
-                    <div class="teksti2">
-                        <h3>What am I all about?</h3>
-                        <p>I’m here to tell your story. Not just take pretty pictures - although I will do that too. 
-                            I want to tell the truth through photographs. 
-                            To share the reality - that your wedding day is the one day all of your closest friends 
-                            and family are in one place at the same time. All there to celebrate and witness your 
-                            beautiful union. No matter what that looks like I’m here to tell that story.
-                        </p>
-                    </div>
-                    <img src="AboutMeInHomePage.png" alt="">
-                </div>
-            </fieldset>
+        <div class="slider">
+            <div class="slide" style="background-image: url('HomeBackground2.jpg');"></div>
+            <div class="slide" style="background-image: url('HomeBackground3.jpg');"></div>
+            <div class="slide" style="background-image: url('HomeBackground4.jpg');"></div>   
         </div><br>
-    </main>
+        <div class="spacer"></div>
+        <div class="welcome" >
+            <h1><b>MORE PRESENCE.</b></h1>
+            <h1><b>LESS POSES.</b></h1>
+            <h4>If you're looking for something a little off the beaten path, you're in the right place. 
+                Let's create something beautiful, and uniquely yours.
+            </h4>
+        </div>
+        <div class="spacer"></div>
+        <div class="complete">
+            <hr style="width: 70%; margin-left: 15%;"><br>
+            <h3 style="white-space: pre-wrap;">SOME OF MY RECENT WORK:</h3><br><br>
+            <div class="recentWork">
+                <div class="foto">
+                    <img src="LatestWork1.jpg" alt=""><br>
+                    <div class="description">
+                        <p>Allie and Jayce’s Downtown Wedding</p>
+                        <p>13th June, 2023</p>
+                    </div>
+                </div>
+                <div class="foto">
+                    <img src="LatestWork2.jpg" alt=""><br>
+                    <div class="description">
+                        <p>Tasha and Mike’s emotional mariage</p>
+                        <p>1st Ocotber, 2023</p>
+                    </div>
+                </div>
+                <div class="foto">
+                    <img src="LatestWork6.jpg" alt=""><br>
+                    <div class="description">
+                        <p>Allie’s friends moments</p>
+                        <p>13th June, 2023</p>
+                    </div>
+                </div>
+     
+                <div class="foto">
+                    <img src="LatestWork7.jpg" alt=""><br>
+                    <div class="description">
+                        <p>Kevin’s reaction to Amber’s look</p>
+                        <p>23rd August, 2023</p>
+                    </div>
+                </div>
+                <div class="foto">
+                    <img src="LatestWork11.jpg" alt=""><br>
+                    <div class="description">
+                        <p>Anna and Rob’s Wedding</p>
+                        <p>14th September, 2023</p>
+                    </div>
+                </div>
+                <div class="foto">
+                    <img src="LatestWork13.jpg" alt=""><br>
+                    <div class="description">
+                        <p>Boho summer Wedding moments</p>
+                        <p>14th September, 2023</p>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <button class="butoni1">CHECK MORE OF MY WORK</button>
+        </div>
+        <div class="spacer"></div>
+        <img src="mainPart.jpg" alt="" style="width: 100%;">
+        <div class="spacer"></div>
+        <hr style="width: 70%; margin-left: 15%;"><br>
+        <h1 class="a"><b>MORE STORIES</b></h1><br>
+        <hr style="width: 70%; margin-left: 15%;"><br>
+        <div class="spacer"></div>
+
+        <div class="complete1">
+            <div class="blogs">
+                <img src="MoreStories3.png" alt="">
+                    <div class="Stories">
+                        <h2>Seth and Jordan’s boho summer farm wedding</h2>
+                        <br>
+                        <p>
+                            In the foothills of Denver, Colorado, at a flower farm, 
+                            Seth and Jordan celebrated their love with all of their friends and family. 
+                            Lyons Farmette provided the perfect backdrop for a beautiful summer day in Colorado. 
+                            The sun shone brightly all day, covering the farm in the warmest light. 
+                            Flowers, just starting to bloom, and lush grass covered the farm. 
+                            Perfect for Jordan's barefoot wedding dreams.
+                        </p>
+                    </div>
+            </div>
+            <br>
+            <div class="blogs">
+                <img src="MoreStories2.png" alt="">
+                    <div class="Stories">
+                        <h2>Jenna and Ryan’s Blanc Denver Wedding</h2>
+                        <br>
+                        <p>
+                            Jenna and Ryan shared their love in Denver, 
+                            Colorado in a fun and colorful celebration with their friends and family and one wedding crasher too. 
+                            They got ready at the CatBird Hotel in downtown Denver. 
+                            We had planned to go up to the rooftop of the hotel to capture their first look and wedding party 
+                            photos and stumbled upon a 300 person swingers party and an incoming rain storm.
+                        </p>
+                    </div>
+            </div>
+            <br>
+            <div class="blogs">
+                <img src="MoreStories4.png" alt="">
+                <div class="Stories">
+                    <h2>Allie and Jayce’s Downtown Austin Engagement Session</h2>
+                    <br>
+                    <p>Allie and Jayce wanted their engagement session to encapsulate their time in Austin together. 
+                        The place they shared their first home, where they spent their Friday nights
+                        at their favorite Mexican restaurant and the park they take their dogs. 
+                        They documented their engagement season under the Austin Skyline, 
+                        after grabbing margs and queso at their go-to Friday night spot.
+                    </p>
+                </div>  
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+        <img src="mainPart2.jpg" alt="" style="width: 100%;">
+        <div class="spacer"></div>
+
+       <div class="whyEla">
+            <hr style="width: 70%; margin-left: 15%;"><br>
+            <h1><b>WHY ELA?</b></h1><br><br>
+            <h3><b>Experience</b></h3><br>
+            <p>I have shot over 100 weddings and have photographed in a wide variety of venues, 
+                lighting situations, and family dynamics. You can expect professionalism. 
+                Offering guidance, reassurance and a calming presence throughout your wedding day. 
+            </p><br>
+            <h3><b>Direct Communication</b></h3><br>
+            <p>Quick and clear communication throughout the booking and planning process. 
+                And over communication on your wedding day to ensure you, your family and guests are informed.  
+                You will be in direct contact with me throughout the entire process, 
+                no jumping through hoops to get in touch or being deferred to an assistant.
+            </p><br>
+            <h3><b>Planning Assistance</b></h3><br>
+            <p>
+                A free wedding guide is given to all couples to help with the planning process. 
+                I provide timeline assistance to all couples, even if you have a planner/coordinator. 
+                I am never more than a phone call or text away.
+            </p>
+       </div>
+       <div class="spacer"></div>
+       <div class="AboutMe">
+            <img src="AboutMe2jpg.jpg" alt="">
+            <div class="abmt">
+                <h2>WHAT AM I ALL ABOUT?</h2><br>
+                <p>I’m here to tell your story. Not just take pretty pictures - although I will do that too. 
+                    I want to tell the truth through photographs. 
+                    To share the reality - that your wedding day is the one day all of your closest friends 
+                    and family are in one place at the same time. All there to celebrate and witness your 
+                    beautiful union. No matter what that looks like I’m here to tell that story.
+                </p><br>
+                <p>
+                    Better known as the one crying on your wedding day. 
+                    You’ll find me tearing up at some point, something about watching other people’s love just 
+                    gets to me. You’ll also probably find me balancing a camera in one hand, 
+                    bouquet in the other and a veil around my neck.
+                </p><br>
+                <button>READ MORE ABOUT ME</button>
+            </div>
+       </div>
+       
+
+       <div class="spacer"></div>
+       <hr style="width: 70%; margin-left: 15%;"><br>
+       <h1 class="a"><b>WHAT CLIENTS HAVE TO SAY</b></h1><br>
+       <hr style="width: 70%; margin-left: 15%;">
+       <div class="spacer"></div>
+    
+       <div class="complete2">
+            <div class="WhatTheySay">
+                <div class="teksti">
+                    <h3>Hayley + Kit</h3><br>
+                    <p>Where do I start? Ela is the absolute best and we felt like we scored big time 
+                        having her with us on our wedding day. Her photos speak for themselves 
+                        but the woman behind the camera is equally as amazing. 
+                        She was gracious with our guests (parents) that felt like they needed their own iphone pictures, 
+                        always responsive, was everywhere on our wedding day (without us even noticing half of the time), 
+                        was responsive and helpful in the planning process, 
+                        and honestly just someone my husband and I would want to be friends with in real life. 
+                        We are so grateful for Ela!
+                    </p>
+                </div>
+                <img src="WhatClientsHaveToSay.jpg" alt="">
+            </div>
+            <br>
+            <div class="WhatTheySay">
+                <div class="teksti">
+                    <h3>Brock + Wajiha</h3><br>
+                    <p>There aren’t enough positive things to say about Sarah. She photographed two days of
+                        my south Asian wedding and she captured the joy so beautifully! 
+                        I know how nerve-racking it can be to make a final decision on a photographer, 
+                        but look no further. Sarah engenders trust like no other. 
+                        She has a quiet and calming presence, which is so helpful to have on your wedding day!
+                        My husband and I are not comfortable in front of the camera, 
+                        but Sarah made us look like naturals. 
+                        I received so many compliments on my photos. 
+                        Of all the vendor decisions I made during the course of wedding planning, 
+                        deciding on a Sarah E. Photography was the best one I made!
+                    </p>
+                </div>
+                <img src="WhatClientsHaveToSay2.png" alt="">
+            </div>
+            <br>
+            <div class="WhatTheySay">
+                <div class="teksti">
+                    <h3>Leo + JoAnn</h3><br>
+                    <p>Ela is the BEST photographer we have ever encountered! 
+                        I can't tell you enough how many times we have seen the pictures over and over 
+                        and the many compliments we have received over the pictures. 
+                        Seriously best money we have EVER spent! Ela called us about two weeks before 
+                        the wedding to make a timeline and the day of the wedding, 
+                        she made sure everything we had planned came out a reality. 
+                        Our family loved her! We are so THANKFUL!! This is an understatement of just how 
+                        awesome she is and how amazing her talent is! Seriously, everyone NEEDS to hire her asap! 
+                        Like now, Do it!
+                    </p>
+                </div>
+                <img src="WhatClientsHaveToSay3.png" alt="">
+            </div>
+       </div>
+       <div class="spacer"></div>
+       <h1 class="b">INTERESTED IN WORKING TOGETHER?</h1><br><br><br>
+       <button class="butoni2">Contact me</button>
+       <div class="spacer"></div>
+    </main>   
+        
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        let slideIndex = 0;
+    
+        function nextSlide() {
+            slides.forEach((slide, index) => {
+                slide.style.transition = 'transform 1s ease'; 
+                slide.style.transform = `translateX(${-slideIndex * 100}%)`;
+            });
+    
+            slideIndex = (slideIndex + 1) % slides.length;
+        }
+    
+    
+        slides.forEach((slide, index) => {
+            slide.style.transition = 'transform 1s ease'; 
+            if (index === slideIndex) {
+                slide.style.transform = 'translateX(0)';
+            } else {
+                slide.style.transform = 'translateX(100%)';
+            }
+        });
+    
+        setInterval(nextSlide, 3000);
+    </script>
+    
     
     <footer>
+        <hr style="color: black;">
         <br>
         <div class="logot">
             <a href=""><img src="instagram1.png" alt="" width="40px" height="40px"></a>
@@ -212,3 +331,4 @@
     </footer>
 </body>
 </html>
+
