@@ -23,25 +23,41 @@
    
     <div class="login-form">
         <form>
-            <h1>Hello! You can sign in to the course here:</h1>
+            <h1>Hello! You can register to the course here:</h1>
             <div class="content">
                 <div class="input-field">
-                <input type="email" placeholder="Email" autocomplete="email">
+                    <input type="text" id="name" placeholder="Name" autocomplete="name">
+                    <div class="error-message" id="nameError"></div>
                 </div>
                 <div class="input-field">
-                <input type="password" placeholder="Password" autocomplete="new-password">
+                    <input type="text" id="surname" placeholder="Surname" autocomplete="surname">
+                    <div class="error-message" id="surnameError"></div>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="age" placeholder="Age" autocomplete="age">
+                    <div class="error-message" id="ageError"></div>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="email" placeholder="Email" autocomplete="email">
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="password" placeholder="Password" autocomplete="new-password">
+                    <div class="error-message" id="passwordError"></div>
                 </div>
             </div>
           <div class="action">
-            <button>Register</button>
-            <button>Sign in</button>
+            <button onclick="validateForm(event)">Sign in </button>
           </div>
         </form>
     </div>
 
     <div class="Teksti">
+        <div class="spacer"></div>
         <div class="Info">     
-                <h2>&#128516 COURSE LOGIN INFO</h2><br>
+                <hr style="width: 70%; margin-left: 15%;"><br>
+                <h2>COURSE LOGIN INFO</h2><br>
+                <hr style="width: 70%; margin-left: 15%;"><br>
                 <p>
                     This beginner`s photography course will take you to an advanced level in no 
                     time and fill any gaps of knowledge that may be causing you not to reach your full potential. 
@@ -52,9 +68,10 @@
                     whilst giving you accurate and thorough knowledge in photography. And all that <b>ONLINE</b>.
                 </p>
         </div><br><br>
-
         <div class="courseContent">
+            <hr style="width: 70%; margin-left: 15%;"><br>
             <h2>TOPICS YOU WILL LEARN DURING THE COURSE:</h2><br>
+            <hr style="width: 70%; margin-left: 15%;"><br>
                 <p>
                     Some of the topics that you are going to master through this course are:
                     camera kits and recommended equipment, introduction to camera settings, focusing, getting your 
@@ -62,25 +79,32 @@
                     apertures and depth of field, shutter speeds, controlling movement and slow sync flash, balancing exposures,
                     resolution, understanding light and white balance, night photography and...Painting with Light! 
                 </p>
-        </div>
-        <br>
+        </div><br><br>
         <div class="questions">
-                <h3>HOW LONG DOES IT TAKE TO COMPLETE THIS COURSE?</h3>
+                <h3>HOW LONG DOES IT TAKE TO COMPLETE THIS COURSE?</h3><br>
+                <hr style="width: 70%; margin-left: 15%;"><br>
                 <p>
                     The course can be completed in your own time, at your own pace. 
                     On average someone with a full-time job will take 1 to 2 months to complete the course.
                 </p><br>
-                <h3>WHAT EQUIPMENT TO I NEED?</h3>
+                <h3>WHAT EQUIPMENT TO I NEED?</h3><br>
                 <p>You will need a camera that has manual settings and a standard kit lens. 
                     This is generally a DSLR or mirrorless camera, but some bridge cameras are also fine. 
                     An easy way to tell if your camera is suitable is to look at the top of it and see if it has a 
                     dial with the letter M (for manual) on it. You will also need a tripod.
                 </p><br>
-                <h3>DO I GET A CERTIFICATE WITH THIS COURSE?</h3>
+                <h3>DO I GET A CERTIFICATE WITH THIS COURSE?</h3><br>
                 <p>
                     Yes - On completion of all our all courses, you receive a certificate from The School of Photography.
                 </p>
-        </div><br>
+        </div><br><br>
+        <hr style="width: 70%; margin-left: 15%;"><br><br>
+    </div>
+
+    <div class="fundi">
+        <img src="CourseLogin2.jpg" alt="">
+        <img src="CourseLogin1.jpg" alt="">
+        <img src="CourseLogin3.jpg" alt="">
     </div>
     <footer>
         <hr style="color: black;">
@@ -105,6 +129,60 @@
         </div>
         <p>Privacy Policy</p><br>
     </footer>
+
+    <script>
+        let nameRegex = /^[A-Z].[a-z]*$/;
+        let surnameRegex=/^[A-Z].[a-z]*$/;
+        let ageRegex=/^(1[4-9]|[2-4]\d|50)$/;
+        let emailRegex= /[a-zA-Z.-_]+@+[a-z]+\.+[a-z]{2,3}$/;
+        let passwordRegex=/^[A-Z].+[0-9]{3}$$/;
+
+        function validateForm(event){
+            event.preventDefault(); 
+            let nameInput = document.getElementById('name');
+            let nameError = document.getElementById('nameError');
+
+            let surnameInput = document.getElementById('surname');
+            let surnameError = document.getElementById('surnameError');
+
+            let ageInput=document.getElementById('age');
+            let ageError=documents.getElementById('ageError');
+
+            let emailInput =document.getElementById('email');
+            let emailError=document.getElementById('emailError');
+
+            let passwordInput =document.getElementById('password');
+            let passwordError=document.getElementById('passwordError');
+
+            nameError.innerText = '';
+            surnameError.innerText = '';
+            ageError.innerText='';
+            emailError.innerText='';
+            passwordError.innerText='';
+
+            if(!nameRegex.test(nameInput.value)){
+                nameError.innerText = 'invalid name';
+                return;
+            }
+            if(!surnameRegex.test(surnameInput.value)){
+                surnameError.innerText = 'invalid surname';
+                return;
+            }
+            if(!ageRegex.test(ageInput.value)){
+                ageError.innerText='You must be between the age of 14-50';
+                return;
+            }
+            if(!emailRegex.test(emailInput.value)){
+                emailError.innerText='Invalid email';
+                return;
+            }
+            if(!passwordRegex.test(passwordInput.value)){
+                passwordError.innerText='Invalid pasword, length must be 5-8 characters';
+                return;
+            }
+            alert('Succesfully signed-up');
+        }
+    </script>
 
 </body>
 </html>
