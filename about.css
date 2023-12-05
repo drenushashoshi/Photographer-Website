@@ -8,6 +8,7 @@ body {
     height: max-content;
     overflow-x: hidden;
     overflow-y: auto;
+    margin: 0px;
 }
 
 header {
@@ -22,6 +23,7 @@ header {
     z-index: 1000;
     overflow: hidden;
     opacity: 0.8;
+    box-shadow: 10px 10px 10px #666666;
 }
 
 header img {
@@ -360,6 +362,7 @@ header img {
     opacity: 0.8;
     padding: 10px;
 }
+
 
 @media screen and (max-width: 1000px) {
     .abm {
