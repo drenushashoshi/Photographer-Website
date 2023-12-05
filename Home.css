@@ -45,74 +45,120 @@ header img{
     color: black;
     opacity: 1;
 }
-.Background{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url(HomeBackground.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+.spacer{
+    margin-bottom: 100px;
+}
+.welcome{
     width: 100%;
-    height: 600px;
-}
-.LatestWork{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
     text-align: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    white-space: pre-wrap;
+    font-size: larger;
 }
-
+.welcome h4{
+    color: rgb(94, 79, 60);
+}
+.complete{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(94, 79, 60);
+    text-align: center;
+    font-size: 22px;
+}
+.recentWork{
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-self: center;
+}
 .foto{
-    display: inline;
-    width: 33%;
-    height: 300px;
-    opacity: 70%; 
-}
-
-.foto:hover {
-    opacity: 1.0;
-}
-.butoni{
-    align-items: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
-    text-align: center;
-}
-
-.title{
     display: flex;
     flex-direction: column;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
-    align-items: center;
-    justify-content: center;
+    width: 400px;
+    height: 400px;
+    z-index: 1;
 }
-.fieldset{
-    background-color: grey;
+.description{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.butoni1{
+    border-radius: 40px;
+    background-color:rgb(94, 79, 60);
+    color: white;
+    width: 350px;
+    height: 60px;
+    font-size: 18px;
+    transition-duration: 0.4s;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.butoni1:hover{
+    background-color: black;
+    color: white;
+    border: none;
+}
+.a{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    white-space: pre-wrap;
+    font-size: 30px;
+}
+.complete1{
+    width: 85%;
+    margin-left: 100px;
+    align-self: center;
+    border: none;
+    display: flex;
+    flex-direction: column;
 }
 .blogs{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
     height: 400px; 
 }
-
+.blogs img{
+    width: 600px;
+    height: 350px;
+}
 .Stories{
-    width: 30%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 70px;
+    font-size: large;
 }
-.Sayings>h1{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: larger;
-    justify-content: center;
-    text-align: center;
+.complete2{
+    width: 85%;
+    margin-left: 100px;
+    align-self: center;
+    border: none;
+    display: flex;
+    flex-direction: column;
 }
-
 .WhatTheySay{
     display: flex;
     flex-direction: row;
@@ -120,40 +166,121 @@ header img{
     width: 100%;
     height: 400px; 
 }
+.WhatTheySay img{
+    width: 600px;
+    height: 350px;
+}
 .teksti{
-    width: 30%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 20px;
+    font-size: 18px;
 }
-.Aboutme>h1{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: larger;
+.teksti h3{
+    font-size: 30px;
+}
+.whyEla{
+    width: 50%;
+    margin-left: 25%;
     justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.whyEla h1{
+    white-space: pre-wrap;
+    font-size: 60px;
     text-align: center;
 }
-.LittleAboutMe{
+.whyEla h3{
+    font-size: 30px;
+    color: rgb(94, 79, 60);
+    text-align: start;
+}
+.whyEla p{
+    font-size: 18px;
+    text-align: start;
+}
+.AboutMe{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    height: 400px;
 }
-.teksti2{
-    width: 30%;
+.AboutMe img{
+    height: 60%;
+    width: 50%;
+    position:relative;
+    margin-left: 15%;
+    z-index: 1;
+}
+.abmt{
+    background-color:rgb(168, 164, 159); 
+    color: white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    margin-top: 50px;
+    width: 550px;
+    height: 430px;
+    margin-left: 700px;
+    position: absolute;
+    z-index: 2;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 50px 50px 30px 50px;
+    font-size: 17px;
+}
+.abmt button{
+    border-radius: 20px;
+    background-color:rgb(40, 40, 40);
+    color: white;
+    width: 200px;
+    height: 80px;
+    transition-duration: 0.4s;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 100px;
+}
+.abmt button:hover{
+    background-color: rgb(117, 83, 83);
+}
+.b{
+    width: 50%;
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    align-items: center;
+    margin-left: 25%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    white-space: pre-wrap;
+    font-size: 40px;  
+}
+.butoni2{
+    border-radius: 40px;
+    background-color:rgb(117, 99, 76);
+    color: white;
+    width: 200px;
+    height: 60px;
+    margin-left: 43%;
+    font-size: 18px;
+    transition-duration: 0.4s;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.butoni2:hover{
+    background-color: black;
+    color: white;
+    border: none;
 }
 footer{
-    background-color: rgb(194, 181, 191);
+    background-color: rgb(235, 234, 234);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     font-size: 15px;
+    position: relative; 
+    z-index: 2;
 }
 .footermain{
     display: flex;
