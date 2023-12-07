@@ -61,8 +61,8 @@ header img {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     color: white;
-    opacity: 0.8;
     background-image: url(Portofolio_Pictures/bgphoto.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -73,30 +73,58 @@ header img {
     margin-bottom: 20px;
     margin-left: 0px;
 }
+.categories{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 .list {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     list-style: none;
     padding: 0;
-    width: 100%;
+    width: 80%;
     overflow: hidden;
+    padding-bottom: 10px;
+    align-self: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.651);
 }
 .list li {
     margin-right: 5%;
-    color: black;
+    color: rgba(34, 31, 31, 0.651);
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Playfair Display', serif;
     align-items: center;
 }
 #categ{
-    margin-right: 55%;
+    margin-right: 50%;
     justify-self: flex-start;
+    font-size: larger;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .list li a {
     text-decoration: none;
-    color: black;
+    color: rgba(34, 31, 31, 0.651);
     opacity: 1;
 }
 
+.portofoliopics {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.portofoliopics > div {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+}
+
+.portofoliopics img {
+    max-width: 100%; 
+    height: auto; 
+}
