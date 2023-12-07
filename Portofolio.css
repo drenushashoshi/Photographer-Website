@@ -1,6 +1,7 @@
 html {
     width: 100%;
     margin: 0px;
+    background-color: #F1EBE4;
 }
 
 body {
@@ -111,20 +112,61 @@ header img {
     opacity: 1;
 }
 
-.portofoliopics {
-    display: flex;
-    width: 100%;
+.portofoliopics{
     justify-content: space-evenly;
+    justify-self: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    align-self: center;
+    margin-bottom: 10%;
 }
 
 .portofoliopics > div {
     display: flex;
-    flex-direction: column; 
-    align-items: center;
-    text-align: center; 
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    height: fit-content;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
 }
-
-.portofoliopics img {
-    max-width: 100%; 
-    height: auto; 
+footer{
+    background-color: #737373;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    position: relative; 
+    z-index: 2;
+    color: white;
+}
+.footermain{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+.adresa{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    font-size: 17px;
+    justify-content: space-around;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.footerfoto{
+    margin-left: 20px;
+    display: flex;
+    width: max-content;
+    align-items: flex-end; 
+    justify-content: space-evenly;
+}
+.footerfoto img{
+    margin: 10px;
 }
