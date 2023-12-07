@@ -1,5 +1,6 @@
 html {
     width: 100%;
+    background-color: #f1ebe4;
 }
 
 body {
@@ -23,7 +24,6 @@ header {
     z-index: 1000;
     overflow: hidden;
     opacity: 0.8;
-    box-shadow: 10px 10px 10px #666666;
 }
 
 header img {
@@ -62,22 +62,18 @@ header img {
     align-items: center;
     justify-content: center;
     color: white;
-    opacity: 0.8;
     background-image: url(About_Pictures/ED_about_bg.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100%;
-    height: 600px;
+    height: 700px;
     text-decoration: double gray;
     margin-bottom: 20px;
     margin-left: 0px;
 }
 
 .abm {
-    /** background-image: url(About_Pictures/Wallpaper.png);
-    background-size: cover;*/
-    background-color: white;
     display: flex;
     width: 100%;
     height: 800px;
@@ -107,7 +103,7 @@ header img {
     margin: 20px;
     margin-top: 50px;
     overflow: hidden;
-    background-color: #F6F6F6;
+    background-image: url(About_Pictures/bg-faq.png);
     margin-right: 200px;
     box-shadow: 10px 10px 5px 12px rgba(136, 128, 128, 0.849);
     position: absolute;
@@ -127,14 +123,13 @@ header img {
     display: block;
     position: relative;
     width: 100%;
-    background-color: #F1EBE4;
+    background-image: url(About_Pictures/bg-faq.png);
     border-top: 1px solid black;
     border-bottom: 1px solid rgb(56, 53, 53);
     padding: 10px;
     overflow: hidden;
     height: 680px;
     flex-wrap: wrap;
-    opacity: 0.8;
 }
 
 .t1 {
@@ -144,7 +139,7 @@ header img {
     width: 250px;
     z-index: 3;
     overflow-y: hidden;
-    background-color: #F1EBE4;
+    background-image: url(About_Pictures/bg-faq.png);
 }
 
 .t1 img {
@@ -167,7 +162,7 @@ header img {
     left: 100px;
     overflow: hidden;
     z-index: 2;
-    background-color: #F1EBE4;
+    background-image: url(About_Pictures/bg-faq.png);
 }
 
 .t2 img {
@@ -200,7 +195,7 @@ header img {
     left: 450px;
     overflow: hidden;
     z-index: 2;
-    background-color: #F1EBE4;
+    background-image: url(About_Pictures/bg-faq.png);
 }
 
 .t4 img {
@@ -278,7 +273,6 @@ header img {
     width: 100%;
     position: relative;
     overflow: hidden;
-    background-color: white;
     display: flexbox;
     flex-direction: column;
     justify-content: center;
@@ -362,6 +356,38 @@ header img {
     opacity: 0.8;
     padding: 10px;
 }
+footer{
+    background-color: rgb(235, 234, 234);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    position: relative; 
+    z-index: 2;
+}
+.footermain{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+.adresa{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    font-size: 17px;
+    justify-content: space-around;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.footerfoto{
+    margin-left: 20px;
+    display: flex;
+    width: 170px;
+    align-items: flex-end; 
+}
+
+
 
 
 @media screen and (max-width: 1000px) {
