@@ -130,11 +130,11 @@
     </footer>
 
     <script>
-        let nameRegex = /^[A-Z].[a-z]*$/;
-        let surnameRegex=/^[A-Z].[a-z]*$/;
+        let nameRegex = /^[A-Z][a-z]{2,}$/;
+        let surnameRegex=/^[A-Z][a-z]{2,}$/;
         let ageRegex=/^(1[4-9]|[2-4]\d|50)$/;
         let emailRegex= /[a-zA-Z.-_]+@+[a-z]+\.+[a-z]{2,3}$/;
-        let passwordRegex=/^[A-Z].+[0-9]{3}$$/;
+        let passwordRegex=/^(?=.*\d.*\d)[A-Za-z\d]{5,8}$/;
 
         function validateForm(event){
             event.preventDefault(); 
@@ -145,7 +145,7 @@
             let surnameError = document.getElementById('surnameError');
 
             let ageInput=document.getElementById('age');
-            let ageError=documents.getElementById('ageError');
+            let ageError=document.getElementById('ageError');
 
             let emailInput =document.getElementById('email');
             let emailError=document.getElementById('emailError');
@@ -160,23 +160,23 @@
             passwordError.innerText='';
 
             if(!nameRegex.test(nameInput.value)){
-                nameError.innerText = 'invalid name';
+                nameError.innerText = '*invalid name, must begin with a capital letter';
                 return;
             }
             if(!surnameRegex.test(surnameInput.value)){
-                surnameError.innerText = 'invalid surname';
+                surnameError.innerText = '*invalid surname, must begin with a capital letter';
                 return;
             }
             if(!ageRegex.test(ageInput.value)){
-                ageError.innerText='You must be between the age of 14-50';
+                ageError.innerText='*You must be between the age of 14-50';
                 return;
             }
             if(!emailRegex.test(emailInput.value)){
-                emailError.innerText='Invalid email';
+                emailError.innerText='*Invalid email';
                 return;
             }
             if(!passwordRegex.test(passwordInput.value)){
-                passwordError.innerText='Invalid pasword, length must be 5-8 characters';
+                passwordError.innerText='*Length of the password must be 5-8 characters and include at least 2 numbers';
                 return;
             }
             alert('Succesfully signed-up');
