@@ -139,20 +139,29 @@ header img {
     margin-bottom: 5%;
 }
 footer{
-    background-color: #737373;
     display: flex;
-    width: 100%;
-    height: max-content;
     flex-direction: column;
     justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     align-items: center;
     font-size: 15px;
-    position: relative; 
-    z-index: 2;
+    background-color: #737373;
     color: white;
+}
+.logot{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.logot img{
+    width: 40px;
+    height: 40px;
 }
 .footermain{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     width: 90%;
 }
@@ -160,18 +169,11 @@ footer{
     display: flex;
     flex-direction: column;
     width: 300px;
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 17px;
-    justify-content: space-around;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .footerfoto{
-    margin-left: 20px;
-    display: flex;
-    width: max-content;
-    align-items: flex-end; 
-    justify-content: space-evenly;
-}
-.footerfoto img{
-    margin: 10px;
+    width: 150px;
+    height: 150px;
 }
