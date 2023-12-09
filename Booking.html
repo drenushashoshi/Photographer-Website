@@ -23,8 +23,77 @@
   </header>
   <main>
     <div class="bgphoto">
-      <h2></h2>
+      <h2>CONTACT ME</h2>
     </div>
+    <img src="Booking_Pictures/PlanningPic.png" alt="">
+
+    <form id="myform">
+
+      <label for="your-name">Your Name:</label>
+      <div id="your-name">
+          <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+          <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+      </div>
+
+      <label for="fiance-name">Fiancé's Name:</label>
+      <div id="fiance-name">
+          <input type="text" id="fiance-first-name" name="fiance-first-name" placeholder="First Name" required>
+          <input type="text" id="fiance-last-name" name="fiance-last-name" placeholder="Last Name" required>
+      </div>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone">
+
+      <label for="event-date">Event Date:</label>
+      <input type="date" id="event-date" name="event-date">
+
+      <label for="event-type">Type of Event:</label>
+      <select id="event-type" name="event-type" required>
+        <option value="" disabled selected>Select an option</option>
+          <option value="wedding">Wedding</option>
+          <option value="engagement">Engagement</option>
+          <option value="other">Other</option>
+      </select>
+
+      <label for="event-location">Event Location (Venue):</label>
+      <input type="text" id="event-location" name="event-location" required>
+
+        <label for="guests">Number of Guests:</label>
+        <select id="guests" name="guests" required>
+          <option value="" disabled selected>Select an option</option>
+            <option value="just-us">Just Us 2</option>
+            <option value="10-20">10-20</option>
+            <option value="20-50">20-50</option>
+            <option value="50-100">50-100</option>
+            <option value="100-200">100-200</option>
+            <option value="200-300">200-300</option>
+        </select>
+
+      <label for="love-story">YAS THE BEST PART - Tell me about you two:</label>
+      <textarea id="love-story" name="love-story" rows="6" required></textarea>
+
+      <label for="contact-method">Preferred Method of Contact:</label>
+      <select id="contact-method" name="contact-method" required>
+        <option value="" disabled selected>Select an option</option>
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+      </select>
+
+      <label for="how-found">Where'd you find me?</label>
+      <select id="how-found" name="how-found" required>
+        <option value="" disabled selected>Select an option</option>
+          <option value="google">Google</option>
+          <option value="social-media">Social Media</option>
+          <option value="referral">Referral</option>
+          <option value="other">Other</option>
+      </select>
+
+      <button type="submit">Submit</button>
+  </form>
+
   </main>
 </body>
 
