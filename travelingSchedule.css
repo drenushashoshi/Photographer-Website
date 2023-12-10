@@ -56,51 +56,156 @@ header img {
     color: black;
     opacity: 1;
 }
+.bgphoto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: url(Travel_Pictures/t5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 700px;
+    text-decoration: double gray;
+    text-shadow: 1px 1px 1px black;
+    font-size: large;
+    margin-bottom: 20px;
+    margin-left: 0px;
+}
 
-.adventure{
+
+.adventure {
     width: 100%;
     height: fit-content;
     display: flex;
-    margin-top: 20%;
+    overflow: hidden;
+    padding: 0px;
+    align-items: center;
+    justify-content: flex-end;
 }
-.pictures1{
+
+.pictures1 {
     display: flex;
     flex-direction: column;
-    width: 15%;
+    width: 300px;
+    margin-left: 5%;
+    justify-content: space-between;
 }
-.pictures2{
+
+.pictures2 {
     display: flex;
     flex-direction: column;
-    width: 15%;
-    justify-content: end;
+    width: 300px;
+    justify-content: space-between;
 }
-.adventuretext{
+
+.adventuretext {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
+    z-index: 10000;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    justify-content: center;
 
 }
-.pictures2 img{
+
+.adventure h1 {
+    font-weight: 100;
+    margin-bottom: 0px;
+}
+
+.adventure span {
+    font-weight: 900;
+    font-family: 'Antro Vectra', sans-serif;
+    font-size: 60px;
+}
+
+.pictures2, .pictures1 img {
     width: 300px;
     height: 200px;
+
 }
 
-footer{
+.button {
+    margin-left: 25%;
+    width: 200px;
+    height: 50px;
+    background-color: #5A4B2E;
+    border: 1px solid #5A4B2E;
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+}
+
+.travel {
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 5%;
+}
+
+.image {
+    background-image: url(Travel_Pictures/bgPhoto.jpg);
+    width: 40%;
+    height: 700px;
+    background-position: center center;
+}
+
+.travelDate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 25%;
+}
+.travelDate button{
+    margin-left: 0px;
+}
+.travelDate h1{
+    font-weight: 900;
+    font-family: 'Antro Vectra', sans-serif;
+    font-size: 60px;
+    color: #5A4B2E;
+    margin: 0%;
+}
+.travelDate h6{
+    color: gray;
+    margin: 0px;
+}
+.travelDate h4{
+    color: rgb(56, 56, 56);
+    font-weight: 200;
+}
+.travelDate p{
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+footer {
     background-color: rgb(235, 234, 234);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     font-size: 15px;
-    position: relative; 
+    position: relative;
     z-index: 2;
 }
-.footermain{
+
+.footermain {
     display: flex;
     justify-content: space-between;
     width: 90%;
 }
-.adresa{
+
+.adresa {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -109,9 +214,10 @@ footer{
     justify-content: space-around;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.footerfoto{
+
+.footerfoto {
     margin-left: 20px;
     display: flex;
     width: 170px;
-    align-items: flex-end; 
+    align-items: flex-end;
 }
