@@ -141,7 +141,7 @@ body {
     height: 300px;
 }
 footer{
-    background-color: rgb(194, 181, 191);
+    background-color: rgb(167, 140, 104);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

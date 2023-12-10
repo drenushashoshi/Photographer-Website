@@ -140,7 +140,7 @@ header img {
     margin-bottom: 5%;
 }
 footer{
-    background-color: #737373;
+    background-color: rgb(167, 140, 104);
     display: flex;
     width: 100%;
     height: max-content;
