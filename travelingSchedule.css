@@ -1,0 +1,117 @@
+html {
+    width: 100%;
+    background-color: #f1ebe4;
+}
+
+body {
+    box-sizing: border-box;
+    width: 100%;
+    height: max-content;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0px;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 66px;
+    background-color: white;
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+header img {
+    width: 15%;
+    height: 60px;
+    margin: 0px;
+    padding: 0px;
+    align-self: center;
+}
+
+.pages ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    width: 80%;
+}
+
+.pages ul li {
+    margin-left: 150px;
+    color: black;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: center;
+}
+
+.pages ul li a {
+    text-decoration: none;
+    color: black;
+    opacity: 1;
+}
+
+.adventure{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    margin-top: 20%;
+}
+.pictures1{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
+.pictures2{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    justify-content: end;
+}
+.adventuretext{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+
+}
+.pictures2 img{
+    width: 300px;
+    height: 200px;
+}
+
+footer{
+    background-color: rgb(235, 234, 234);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    position: relative; 
+    z-index: 2;
+}
+.footermain{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+.adresa{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    font-size: 17px;
+    justify-content: space-around;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.footerfoto{
+    margin-left: 20px;
+    display: flex;
+    width: 170px;
+    align-items: flex-end; 
+}
