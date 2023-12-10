@@ -149,6 +149,8 @@ header img {
     width: 100%;
     height: fit-content;
     margin-bottom: 5%;
+    border-bottom: 1px solid #5A4B2E;
+    border-top: 1px solid #5A4B2E;
 }
 
 .image {
@@ -189,14 +191,23 @@ header img {
 }
 
 .form {
-    border: 4px solid #f1f1f1;
+    border: 4px solid #f1ebe4;
+    padding-bottom: 5%;
 }
 
 .container {
     padding: 20px;
+    width: 50%;
+    margin-left: 25%;
     background-color: #5A4B2E;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-content: center;
+    color: #f1ebe4;
+}
+.error-message{
+    color: red;
 }
 
 input[type=text],
@@ -218,7 +229,6 @@ input[type=submit] {
     color: #5A4B2E;
     border: none;
     width: 20%;
-    margin-left: 40%;
 }
 
 input[type=submit]:hover {
