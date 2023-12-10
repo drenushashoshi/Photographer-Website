@@ -150,7 +150,7 @@ footer{
     font-size: 15px;
     position: relative; 
     z-index: 2;
-    color: white;
+    color: black;
 }
 .footermain{
     display: flex;
