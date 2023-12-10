@@ -286,19 +286,23 @@
         const slider = document.querySelector('.slider');
         const slides = document.querySelectorAll('.slide');
         let slideIndex = 0;
+        let direction = 1; 
     
         function nextSlide() {
             slides.forEach((slide, index) => {
-                slide.style.transition = 'transform 1s ease'; 
+                slide.style.transition = 'transform 1s ease';
                 slide.style.transform = `translateX(${-slideIndex * 100}%)`;
             });
     
-            slideIndex = (slideIndex + 1) % slides.length;
+            slideIndex = slideIndex + direction;
+    
+            if (slideIndex === slides.length - 1 || slideIndex === 0) {
+                direction = -direction;
+            }
         }
     
-    
         slides.forEach((slide, index) => {
-            slide.style.transition = 'transform 1s ease'; 
+            slide.style.transition = 'transform 1s ease';
             if (index === slideIndex) {
                 slide.style.transform = 'translateX(0)';
             } else {
@@ -311,7 +315,6 @@
     
     
     <footer>
-        <hr style="color: black;">
         <br>
         <div class="logot">
             <a href=""><img src="instagram1.png" alt="" width="40px" height="40px"></a>
@@ -320,12 +323,12 @@
         </div>
         <div class="footermain">
             <div class="adresa">
-                <p>CONTACT</p>
-                <p>865-323-7622</p>
-                <p>eladoe@gmail.com</p>
-                <hr>
+                <p>CONTACT</p><br>
+                <p>865-323-7622</p><br>
+                <p>eladoe@gmail.com</p><br>
+                <hr><br>
                 Colorado, Arizona and Beyond
-                <p></p>
+                <p></p><br>
             </div>
             <div class="footerfoto">
                 <img src="footer.png" alt="">
