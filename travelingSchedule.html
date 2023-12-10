@@ -70,6 +70,24 @@
                 <button class="button"><a href="Booking.html">CONTACT</a></button>
             </div>
         </div>
+        <form id="newsletter-form">
+            <div class="container">
+                <h2>Subscribe to our Newsletter</h2>
+                <p>Through them you'll know for any changes</p>
+            </div>
+    
+            <div class="container" style="background-color: white">
+                <input type="text" placeholder="Name" name="name" id="name" required>
+                <div class="error-message" id="name-error"></div>
+    
+                <input type="text" placeholder="Email address" name="mail" id="mail" required>
+                <div class="error-message" id="mail-error"></div>
+            </div>
+    
+            <div class="container">
+                <input type="submit" value="Subscribe" onclick="return validateForm()">
+            </div>
+        </form>
     </main>
     <footer>
         <br>
@@ -93,6 +111,32 @@
         </div>
         <p>Privacy Policy</p><br>
     </footer>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var mail = document.getElementById("mail").value;
+
+            let mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
+
+            let emailError = document.getElementById('mail-error');
+            emailError.innerText = '';
+            let nameError = document.getElementById('name-error');
+            nameError.innerText = '';
+            if (!nameRegex.test(name)) {
+                nameError.innerText = '*Invalid name.';
+                return;
+            }
+            if (!mailRegex.test(mail)) {
+                emailError.innerText = '*Invalid email.';
+                return;
+            }
+
+            alert('Form submitted successfully!');
+            return ;
+        }
+    </script>
 </body>
 
 </html>

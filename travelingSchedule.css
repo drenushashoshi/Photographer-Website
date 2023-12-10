@@ -188,6 +188,42 @@ header img {
     font-family: 'Playfair Display', serif;
 }
 
+.form {
+    border: 4px solid #f1f1f1;
+}
+
+.container {
+    padding: 20px;
+    background-color: #5A4B2E;
+    display: flex;
+    justify-content: center;
+}
+
+input[type=text],
+input[type=submit] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=checkbox] {
+    margin-top: 16px;
+}
+
+input[type=submit] {
+    background-color: #f1ebe4;
+    color: #5A4B2E;
+    border: none;
+    width: 20%;
+    margin-left: 40%;
+}
+
+input[type=submit]:hover {
+    opacity: 0.8;
+}
 footer {
     background-color: rgb(235, 234, 234);
     display: flex;
