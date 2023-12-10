@@ -100,11 +100,12 @@ body {
     justify-content: space-between;
 }
 .f{
-    width: 40%;
+    width: 45%;
     border: none;
     padding: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 40%;
+    font-size: large;
+    margin-left: 5%;
     cursor: pointer;
     background: rgba(30, 30, 53, 0.915);
     color: #fffcfc;
@@ -113,20 +114,25 @@ body {
     outline: 0;
 }
 .f1{
-    width: 280%;
+    width: 45%;
     border: none;
     padding: 18px; 
-    margin-left: 100%;
+    margin-left: 10%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
-    background: rgba(30, 30, 53, 0.915);
-    color: #fffcfc;
+    background: rgba(22, 22, 28, 0.915);
+    color:white ;
     border-radius: 5px;
     letter-spacing: 0.2px;
     outline: 0;
+    text-decoration: none;
+    text-align: center;
 }
 .action button:hover {
     background: #3c4d6d;
+}
+.action a:hover{
+    background: #505866;
 }
 .spacer{
     margin-bottom: 100px;
