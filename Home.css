@@ -124,60 +124,79 @@ header img{
     font-size: 30px;
 }
 .complete1{
-    width: 85%;
-    margin-left: 100px;
-    align-self: center;
-    border: none;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .blogs{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 400px; 
+    align-items: flex-start;
+    margin: 20px 0;
+    justify-content: space-between;
 }
 .blogs img{
-    width: 600px;
-    height: 350px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
 }
 .Stories{
     width: 40%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-top: 70px;
-    font-size: large;
-}
-.complete2{
-    width: 85%;
-    margin-left: 100px;
-    align-self: center;
-    border: none;
-    display: flex;
-    flex-direction: column;
-}
-.WhatTheySay{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    height: 400px; 
-}
-.WhatTheySay img{
-    width: 600px;
-    height: 350px;
-}
-.teksti{
-    width: 40%;
-    display: flex;
-    flex-direction: column;
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: large;
+}
+@media only screen and (max-width: 768px) {
+    .blogs {
+        flex-direction: column;
+    }
+
+    .Stories {
+        width: 100%;
+    }
+}
+.complete2{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.WhatTheySay{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+.WhatTheySay img{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+.teksti{
+    width: 40%;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 20px;
+    font-size: large;
+}
+@media only screen and (max-width: 768px) {
+    .WhatTheySay {
+        flex-direction: column;
+    }
+
+    .teksti {
+        width: 90%;
+        align-self: center;
+        margin-bottom: 10px;
+    }
 }
 .teksti h3{
     font-size: 30px;
@@ -207,6 +226,7 @@ header img{
 .AboutMe{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .AboutMe img{
     height: 60%;
@@ -246,6 +266,23 @@ header img{
 .abmt button:hover{
     background-color: rgb(117, 83, 83);
 }
+@media only screen and (max-width: 768px) {
+    .AboutMe img {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .abmt {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 80%;
+    }
+    
+    .abmt button {
+        margin-left: 80px;
+        margin-bottom: 25px;
+    }
+}
 .b{
     width: 50%;
     text-align: center;
@@ -266,6 +303,12 @@ header img{
     transition-duration: 0.4s;
     border: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+@media only screen and (max-width: 768px) {
+    .butoni2 {
+        width: 200px; 
+        max-width: 200px; 
+    }
 }
 .butoni2:hover{
     background-color: black;
