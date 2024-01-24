@@ -29,12 +29,7 @@ if (isset($_POST['loginbtn'])) {
                     $_SESSION['admin'] = ($user['roli'] === 'admin');
                     $_SESSION['loginTime'] = date("H:i:s");
 
-                    // Debugging statements
-                    echo '<pre>';
-                    var_dump($_SESSION);
-                    echo '</pre>';
-
-                    header("location: Portofolio.php");
+                    header("location: Course.php");
                     exit();
                 } else {
                     echo '<script>alert("Invalid email or password!");</script>';

@@ -47,6 +47,9 @@
         color: black;
         opacity: 1;
     }
+    .hide {
+    display: none;
+    }  
     </style>
 </head>
 <body>
@@ -59,6 +62,7 @@
                 <li><a href="Portofolio.php">Portofolio</a></li>
                 <li><a href="CourseLogin.php">Course Login</a></li>
                 <li> <a href="Booking.php">Booking</a></li>
+                <li><a href="dashboard.php" class="<?php echo $hide?>">Dashboard</a></li>
             </ul>
         </div>
     </header>
