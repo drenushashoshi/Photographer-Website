@@ -25,10 +25,16 @@ if (isset($_POST['loginbtn'])) {
 
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $password;
-                    $_SESSION['role'] = $user['role'];
+                    $_SESSION['roli'] = $user['roli'];
+                    $_SESSION['admin'] = ($user['roli'] === 'admin');
                     $_SESSION['loginTime'] = date("H:i:s");
 
-                    header("location: Home.php");
+                    // Debugging statements
+                    echo '<pre>';
+                    var_dump($_SESSION);
+                    echo '</pre>';
+
+                    header("location: Portofolio.php");
                     exit();
                 } else {
                     echo '<script>alert("Invalid email or password!");</script>';
