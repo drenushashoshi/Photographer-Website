@@ -1,3 +1,50 @@
+<?php
+require_once 'databaseConnection.php'; 
+
+if (isset($_POST['loginbtn'])) {
+    if (empty($_POST['email']) || empty($_POST['password'])) {
+        echo '<script>alert("Please fill the required fields!");</script>';
+    } else {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $dbConnection = new DatabaseConnection();
+        $conn = $dbConnection->startConnection();
+
+        if ($conn) {
+            try {
+                $query = "SELECT * FROM user WHERE email = :email AND password = :password";
+                $stmt = $conn->prepare($query);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':password', $password);
+                $stmt->execute();
+
+                if ($stmt->rowCount() > 0) {
+                    session_start();
+                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    $_SESSION['email'] = $email;
+                    $_SESSION['password'] = $password;
+                    $_SESSION['role'] = $user['role'];
+                    $_SESSION['loginTime'] = date("H:i:s");
+
+                    header("location: Home.php");
+                    exit();
+                } else {
+                    echo '<script>alert("Invalid email or password!");</script>';
+                }
+            } catch (PDOException $e) {
+                echo '<script>alert("Query failed");</script>' . $e->getMessage();
+            }
+            $dbConnection = null;
+        } else {
+            echo '<script>alert("Database connection failed");</script>';
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,26 +69,28 @@
     </header>
    
     <div class="login-form">
-        <form>
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
             <h1>Hello! You can login to the course here:</h1>
             <div class="content">
                 <div class="input-field">
-                    <input type="text" id="email" placeholder="Email" autocomplete="email">
+                    <input type="text" id="email" name="email" placeholder="Email" autocomplete="email">
                     <div class="error-message" id="emailError"></div>
                 </div>
                 <div class="input-field">
-                    <input type="password" id="password" placeholder="Password" autocomplete="new-password">
+                    <input type="password" id="password" name="password" placeholder="Password" autocomplete="new-password">
                     <div class="error-message" id="passwordError"></div>
                 </div>
             </div>
             <div class="action">
                 <a class="f1" href="CourseLogin-Register.html">Register</a>
             
-                <button class="f" onclick="validateForm(event)">Login</button><br>
+                <button  name="loginbtn" class="f">Login</button><br>
             </div><br>
             
         </form>
     </div>
+
+
 
     <div class="Teksti">
         <div class="spacer"></div>
@@ -119,33 +168,6 @@
         </div>
         <p>Privacy Policy</p><br>
     </footer>
-
-    <script>
-        let emailRegex= /[a-zA-Z.-_]+@+[a-z]+\.+[a-z]{2,3}$/;
-        let passwordRegex=/^(?=.*\d.*\d)[A-Za-z\d]{5,8}$/;
-
-        function validateForm(event){
-            event.preventDefault(); 
-            let emailInput =document.getElementById('email');
-            let emailError=document.getElementById('emailError');
-
-            let passwordInput =document.getElementById('password');
-            let passwordError=document.getElementById('passwordError');
-
-            emailError.innerText='';
-            passwordError.innerText='';
-
-            if(!emailRegex.test(emailInput.value)){
-                emailError.innerText='*Invalid email';
-                return;
-            }
-            if(!passwordRegex.test(passwordInput.value)){
-                passwordError.innerText='*Length of the password must be 5-8 characters and include at least 2 numbers';
-                return;
-            }
-            alert('Succesfully signed-up');
-        }
-    </script>
 
 </body>
 </html>
