@@ -3,9 +3,9 @@
         session_start();
     }
 
-    $hide = "hide"; // Set to "hide" by default for regular users
+    $hide = "hide"; 
     if ($_SESSION['roli'] == "admin") {
-        $hide = ""; // Set to empty string for admins
+        $hide = ""; 
     } 
 ?>
 <!DOCTYPE html>
@@ -52,9 +52,7 @@
     <main>
         
         <div class="intro">
-            <h2 style="margin-top:100px">Welcome!</h2>
-            <h3><?php echo "Email: ".$_SESSION['email']."<br>" ?></h3>
-            <h3><?php echo "Login Time: ".$_SESSION['loginTime']."<br>"?></h3>
+            <h2 style="margin-top:100px">Welcome <?php echo "<br>" . $_SESSION['email'] ?></h2>
             <h4>Here you can find the schedule for the course:</h4>
         </div>
         <table>

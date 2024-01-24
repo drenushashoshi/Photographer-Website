@@ -1,6 +1,15 @@
 <?php
 require_once 'databaseConnection.php'; 
 
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $hide = "hide"; 
+    if ($_SESSION['roli'] == "admin") {
+        $hide = ""; 
+    } 
+
 if (isset($_POST['loginbtn'])) {
     if (empty($_POST['email']) || empty($_POST['password'])) {
         echo '<script>alert("Please fill the required fields!");</script>';

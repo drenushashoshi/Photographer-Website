@@ -1,6 +1,14 @@
 <?php
     include('HomeFunctions.php');
     include('HomeData.php');
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $hide = "hide"; 
+    if ($_SESSION['roli'] == "admin") {
+        $hide = ""; 
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">

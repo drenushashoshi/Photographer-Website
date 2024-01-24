@@ -1,3 +1,13 @@
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $hide = "hide"; 
+    if ($_SESSION['roli'] == "admin") {
+        $hide = ""; 
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +18,13 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <?php
+        include("Header.php");
+        ?>
+    </header>
     
-    <h3>REGISTRATIONS:</h3>
+    <h3 style="margin-top:100px">REGISTRATIONS:</h3>
     <table border="1">
              <tr>
                  <th>ID</th>
