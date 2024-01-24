@@ -56,16 +56,9 @@ if (isset($_POST['loginbtn'])) {
 </head>
 <body>
     <header>
-        <img src="Logo.png" alt="Logo">
-        <div class="pages">
-            <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Portofolio.html">Portofolio</a></li>
-                <li><a href="CourseLogin.html">Course Login</a></li>
-                <li><a href="Booking.html">Booking</a></li>
-            </ul>
-        </div>
+    <?php
+       include('Header.php');
+    ?>
     </header>
    
     <div class="login-form">
