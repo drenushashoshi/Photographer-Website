@@ -92,7 +92,7 @@ header img {
 }
 
 .textAbMe {
-    display: flex;
+    display: flexbox;
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -448,6 +448,7 @@ footer{
     display: flex;
     justify-content: space-evenly;
     padding-bottom: 5%;
+    flex-wrap: wrap;
 }
 .helptxt div{
     display: flex;
@@ -456,14 +457,43 @@ footer{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #666666;
 }
-
 @media screen and (max-width: 1000px) {
+    body {
+        font-size: 14px; /* Adjust the font size for smaller screens */
+    }
+
+    header {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    header img {
+        width: 20%; 
+        margin-left: 10%;
+    }
+
+    .pages ul {
+        flex-direction: column; /* Stack the navigation items vertically */
+        align-items: center;
+        text-align: center;
+        margin-left: 80%;
+    }
+
+    .pages ul li {
+        margin: 10px;
+    }
+
+    .bgphoto {
+        width: 100%;
+        height: 500px; 
+    }
+
     .abm {
-        padding: 20px;
-        /* Add padding for spacing on smaller devices */
-        display: flexbox;
-        flex-direction: column;
-        width: 400em;
+        width: 100%;
+        overflow: hidden;
+        flex-direction: column; 
+        align-items: center;
     }
 
     .abm img {
@@ -471,30 +501,138 @@ footer{
     }
 
     .textAbMe {
-        width: 100%;
-        margin: auto;
-        padding: 0px;
-        background-image: url(About_Pictures/ElaDoe.jpeg);
-        background-size: cover;
-        background-position-x: 60%;
-        background-repeat: no-repeat;
-        opacity: 0.9;
-        text-align: left;
-        padding: 10px;
+        width: 70%;
+        margin: 20px ;
+        padding: 20px;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: none;
+        border: 1px solid burlywood;
     }
-
+    
+    .travel {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .travel img {
+        display: none;
+        z-index: 0;
+    }
+    
     .textAbMe p {
-        margin-top: 2%;
-        margin-left: 2%;
-        padding: 5%;
-        padding-top: 10%;
-        width: 35%;
-        overflow: auto;
-        background-color: #F6F6F6;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+        margin: 0%;
+        padding: 0%;
     }
 
-    .textAbMe h1 {
+    .t1,.t2,.t3,.t4{
+        z-index: 0;
+    }
+    .travel_title {
+        top: -600px;
+        left: 0;
+        z-index: 999;
+        font-size: 10px;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+    }
+    .travel_title span{
+        font-size: 30px;
+    }
+    .travel p {
+        width: 80%;
+        top: -600px;
+        left: 0;
+        margin: 20px 20px;
+        z-index: 999;
+    }
+
+    .travel h3 {
+        top: -450px;
+        left: 0;
+    }
+
+    .button button {
+        top: -600px;
+        left: 50px;
+    }
+
+    .best {
+        height: auto;
+    }
+
+    .bestdivs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bestdivs div {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .bestdivs img {
+        width: 100%;
+        height: auto;
+    }
+
+    .bestdivs div p {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .imgdiv {
         display: none;
     }
 
+    .work {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        text-align: center;
+    }
+
+    .butoni2 {
+        top: -300px;
+        left: 0;
+    }
+
+    .faq-container {
+        max-width: 100%; /* Adjust the max-width for smaller screens */
+    }
+
+    .adresa,
+    .footerfoto {
+        width: 100%; /* Adjust the width of the address and footer photo */
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .help ul {
+        flex-direction: row;
+        height: auto;
+        justify-content: space-between;
+        margin: 5px;
+        padding: 0px;
+    }
+    .help ul li{
+        width: 20%;
+        font-size: xx-small;
+        margin: 1px;
+    }
+
+
+
+    .helptxt {
+        flex-direction: row;
+    }
+
+    .helptxt div {
+        width: 100%;
+        margin: 10px 0;
+    }
 }
