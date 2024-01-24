@@ -1,6 +1,5 @@
 <?php
 session_start();
-var_dump($_SESSION);
 include 'databaseConnection.php';
 
 function isAdmin()
@@ -9,7 +8,7 @@ function isAdmin()
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["add"])) {
+    if (isset($_POST["add"]) && isAdmin()) {
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
 
@@ -18,12 +17,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$description, $imagePath]);
     }
 
-    if (isset($_POST["delete"])) {
+    if (isset($_POST["delete"]) && isAdmin()) {
         $itemId = $_POST["item_id"];
 
         $conn = (new DatabaseConnection())->startConnection();
         $stmt = $conn->prepare("DELETE FROM portofolio WHERE id = ?");
         $stmt->execute([$itemId]);
+    }
+
+    if (isset($_POST["update"]) && isAdmin()) {
+        $itemId = $_POST["item_id"];
+        $description = $_POST["description"];
+        $imagePath = $_POST["image_path"];
+
+        $conn = (new DatabaseConnection())->startConnection();
+        $stmt = $conn->prepare("UPDATE portofolio SET description = ?, image_path = ? WHERE id = ?");
+        $stmt->execute([$description, $imagePath, $itemId]);
+
+        header("Location: {$_SERVER['REQUEST_URI']}");
+        exit();
     }
 }
 
@@ -41,7 +53,6 @@ if ($result->rowCount() > 0) {
 
 $conn = null;
 
-$hide = isAdmin() ? "" : "hide";
 ?>
 
 <!DOCTYPE html>
@@ -56,44 +67,14 @@ $hide = isAdmin() ? "" : "hide";
 
 <body>
     <header>
-        <?php
-        include('Header.php');
-        ?>
+        <?php include('Header.php'); ?>
     </header>
     <main>
         <div class="bgphoto">
             <h1>RELIVE THE STORY OF THE DAY</h1>
             <h3>See a glimpse into the story of couples' wedding days, engagement season, and more below</h3>
         </div>
-
-        <?php if (isAdmin()): ?>
-            <div class="admin-interface">
-                <?php foreach ($portofolioData as $portofolioItem): ?>
-                    <div>
-                        <img src="<?php echo $portofolioItem['image_path']; ?>" alt="Photo">
-                        <p>
-                            <?php echo $portofolioItem['description']; ?>
-                        </p>
-
-                        <form method="post" action="">
-                            <input type="hidden" name="delete" value="1">
-                            <input type="hidden" name="item_id" value="<?php echo $portofolioItem['id']; ?>">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </div>
-                <?php endforeach; ?>
-
-                <form method="post" action="">
-                    <label for="description">Description:</label>
-                    <input type="text" name="description" required>
-                    <label for="image_path">Image Path:</label>
-                    <input type="text" name="image_path" required>
-                    <button type="submit" name="add">Add New Item</button>
-                </form>
-            </div>
-        <?php endif; ?>
-
-        <div class="categories <?php echo $hide; ?>">
+        <div class="categories">
             <ul class="list">
                 <li id="categ">Categories</li>
                 <li><a href="Portofolio.html">All</a> </li>
@@ -103,18 +84,44 @@ $hide = isAdmin() ? "" : "hide";
             </ul>
         </div>
 
-        <div class="portofoliopics <?php echo $hide; ?>">
+        <div class="portofoliopics">
             <?php foreach ($portofolioData as $portofolioItem): ?>
-                <div>
+                <div class="portfolio-item">
                     <img src="<?php echo $portofolioItem['image_path']; ?>" alt="Photo">
-                    <p>
-                        <?php echo $portofolioItem['description']; ?>
-                    </p>
+                    <p><?php echo $portofolioItem['description']; ?></p>
+
+                    <?php if (isAdmin()): ?>
+                        <form method="post" action="">
+                            <input type="hidden" name="delete" value="1">
+                            <input type="hidden" name="item_id" value="<?php echo $portofolioItem['id']; ?>">
+                            <button type="submit">Delete</button>
+                        </form>
+
+                        <form method="post" action="">
+                            <input type="hidden" name="update" value="1">
+                            <input type="hidden" name="item_id" value="<?php echo $portofolioItem['id']; ?>">
+                            <label for="editDescription">Description:</label>
+                            <input type="text" name="description" value="<?php echo $portofolioItem['description']; ?>" required>
+                            <label for="editImagePath">Image Path:</label>
+                            <input type="text" name="image_path" value="<?php echo $portofolioItem['image_path']; ?>" required>
+                            <button type="submit" name="update">Update Item</button>
+                        </form>
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
-        </div>
 
+            <?php if (isAdmin()): ?>
+                <form method="post" action="">
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" required>
+                    <label for="image_path">Image Path:</label>
+                    <input type="text" name="image_path" required>
+                    <button type="submit" name="add">Add New Item</button>
+                </form>
+            <?php endif; ?>
+        </div>
     </main>
+
     <footer>
         <br>
         <div class="logot">
@@ -137,6 +144,22 @@ $hide = isAdmin() ? "" : "hide";
         </div>
         <p>Privacy Policy</p><br>
     </footer>
+
+    <script>
+        function openEditModal(itemId) {
+            var item = <?php echo json_encode($portofolioData); ?>;
+            var selectedItem = item.find(i => i.id === itemId);
+
+            document.getElementById("editItemId").value = selectedItem.id;
+            document.getElementById("editDescription").value = selectedItem.description;
+            document.getElementById("editImagePath").value = selectedItem.image_path;
+            document.getElementById("editModal").style.display = "block";
+        }
+
+        function closeEditModal() {
+            document.getElementById("editModal").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
