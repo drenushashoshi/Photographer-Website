@@ -1,3 +1,7 @@
+<?php
+    include('HomeFunctions.php');
+    include('HomeData.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +42,7 @@
                 <li><a href="About.html">About</a></li>
                 <li><a href="Portofolio.html">Portofolio</a></li>
                 <li><a href="CourseLogin.html">Course Login</a></li>
-                <li> <a href="Booking.html"></a>Booking</li>
+                <li> <a href="Booking.html">Booking</a></li>
             </ul>
         </div>
     </header>
@@ -65,49 +69,11 @@
             <hr style="width: 70%; margin-left: 15%;"><br>
             <h3 style="white-space: pre-wrap;">SOME OF MY RECENT WORK:</h3><br><br>
             <div class="recentWork">
-                <div class="foto">
-                    <img src="Home_Pictures/LatestWork1.jpg" alt=""><br>
-                    <div class="description">
-                        <p>Allie and Jayce’s Downtown Wedding</p>
-                        <p>13th June, 2023</p>
-                    </div>
-                </div>
-                <div class="foto">
-                    <img src="Home_Pictures/LatestWork2.jpg" alt=""><br>
-                    <div class="description">
-                        <p>Tasha and Mike’s emotional mariage</p>
-                        <p>1st Ocotber, 2023</p>
-                    </div>
-                </div>
-                <div class="foto">
-                    <img src="Home_Pictures/LatestWork6.jpg" alt=""><br>
-                    <div class="description">
-                        <p>Allie’s friends moments</p>
-                        <p>13th June, 2023</p>
-                    </div>
-                </div>
-     
-                <div class="foto">
-                    <img src="Home_Pictures/LatestWork7.jpg" alt=""><br>
-                    <div class="description">
-                        <p>Kevin’s reaction to Amber’s look</p>
-                        <p>23rd August, 2023</p>
-                    </div>
-                </div>
-                <div class="foto">
-                    <img src="Home_Pictures/LatestWork11.jpg" alt=""><br>
-                    <div class="description">
-                        <p>Anna and Rob’s Wedding</p>
-                        <p>14th September, 2023</p>
-                    </div>
-                </div>
-                <div class="foto">
-                    <img src="Home_Pictures/LatestWork13.jpg" alt=""><br>
-                    <div class="description">
-                        <p>Boho summer Wedding moments</p>
-                        <p>14th September, 2023</p>
-                    </div>
-                </div>
+                <?php
+                    foreach($RecentWork as $work){
+                        printRecentWork($work[0], $work[1], $work[2]);
+                    }
+                ?>
             </div>
             <br><br>
             <a href="Portofolio.html">
@@ -123,50 +89,11 @@
         <div class="spacer"></div>
 
         <div class="complete1">
-            <div class="blogs">
-                <img src="Home_Pictures/MoreStories3.png" alt="">
-                    <div class="Stories">
-                        <h2>Seth and Jordan’s boho summer farm wedding</h2>
-                        <br>
-                        <p>
-                            In the foothills of Denver, Colorado, at a flower farm, 
-                            Seth and Jordan celebrated their love with all of their friends and family. 
-                            Lyons Farmette provided the perfect backdrop for a beautiful summer day in Colorado. 
-                            The sun shone brightly all day, covering the farm in the warmest light. 
-                            Flowers, just starting to bloom, and lush grass covered the farm. 
-                            Perfect for Jordan's barefoot wedding dreams.
-                        </p>
-                    </div>
-            </div>
-            <br>
-            <div class="blogs">
-                <img src="Home_Pictures/MoreStories2.png" alt="">
-                    <div class="Stories">
-                        <h2>Jenna and Ryan’s Blanc Denver Wedding</h2>
-                        <br>
-                        <p>
-                            Jenna and Ryan shared their love in Denver, 
-                            Colorado in a fun and colorful celebration with their friends and family and one wedding crasher too. 
-                            They got ready at the CatBird Hotel in downtown Denver. 
-                            We had planned to go up to the rooftop of the hotel to capture their first look and wedding party 
-                            photos and stumbled upon a 300 person swingers party and an incoming rain storm.
-                        </p>
-                    </div>
-            </div>
-            <br>
-            <div class="blogs">
-                <img src="Home_Pictures/MoreStories4.png" alt="">
-                <div class="Stories">
-                    <h2>Allie and Jayce’s Downtown Austin Engagement Session</h2>
-                    <br>
-                    <p>Allie and Jayce wanted their engagement session to encapsulate their time in Austin together. 
-                        The place they shared their first home, where they spent their Friday nights
-                        at their favorite Mexican restaurant and the park they take their dogs. 
-                        They documented their engagement season under the Austin Skyline, 
-                        after grabbing margs and queso at their go-to Friday night spot.
-                    </p>
-                </div>  
-            </div>
+            <?php
+            foreach($Stories as $story){
+                printStory($story[0], $story[1], $story[2]);
+            }
+        ?>
         </div>
 
         <div class="spacer"></div>
@@ -225,56 +152,11 @@
        <div class="spacer"></div>
     
        <div class="complete2">
-            <div class="WhatTheySay">
-                <div class="teksti">
-                    <h3>Hayley + Kit</h3><br>
-                    <p>Where do I start? Ela is the absolute best and we felt like we scored big time 
-                        having her with us on our wedding day. Her photos speak for themselves 
-                        but the woman behind the camera is equally as amazing. 
-                        She was gracious with our guests (parents) that felt like they needed their own iphone pictures, 
-                        always responsive, was everywhere on our wedding day (without us even noticing half of the time), 
-                        was responsive and helpful in the planning process, 
-                        and honestly just someone my husband and I would want to be friends with in real life. 
-                        We are so grateful for Ela!
-                    </p>
-                </div>
-                <img src="Home_Pictures/WhatClientsHaveToSay4.jpg" alt="">
-            </div>
-            <br>
-            <div class="WhatTheySay">
-                <div class="teksti">
-                    <h3>Brock + Wajiha</h3><br>
-                    <p>There aren’t enough positive things to say about Sarah. She photographed two days of
-                        my south Asian wedding and she captured the joy so beautifully! 
-                        I know how nerve-racking it can be to make a final decision on a photographer, 
-                        but look no further. Sarah engenders trust like no other. 
-                        She has a quiet and calming presence, which is so helpful to have on your wedding day!
-                        My husband and I are not comfortable in front of the camera, 
-                        but Sarah made us look like naturals. 
-                        I received so many compliments on my photos. 
-                        Of all the vendor decisions I made during the course of wedding planning, 
-                        deciding on a Sarah E. Photography was the best one I made!
-                    </p>
-                </div>
-                <img src="Home_Pictures/WhatClientsHaveToSay2.png" alt="">
-            </div>
-            <br>
-            <div class="WhatTheySay">
-                <div class="teksti">
-                    <h3>Leo + JoAnn</h3><br>
-                    <p>Ela is the BEST photographer we have ever encountered! 
-                        I can't tell you enough how many times we have seen the pictures over and over 
-                        and the many compliments we have received over the pictures. 
-                        Seriously best money we have EVER spent! Ela called us about two weeks before 
-                        the wedding to make a timeline and the day of the wedding, 
-                        she made sure everything we had planned came out a reality. 
-                        Our family loved her! We are so THANKFUL!! This is an understatement of just how 
-                        awesome she is and how amazing her talent is! Seriously, everyone NEEDS to hire her asap! 
-                        Like now, Do it!
-                    </p>
-                </div>
-                <img src="Home_Pictures/WhatClientsHaveToSay.jpg" alt="">
-            </div>
+            <?php
+            foreach($Sayings as $say){
+                printSaying($say[0], $say[1], $say[2]);
+            }
+            ?>
        </div>
        <div class="spacer"></div>
        <h1 class="b">INTERESTED IN WORKING TOGETHER?</h1><br><br><br>
