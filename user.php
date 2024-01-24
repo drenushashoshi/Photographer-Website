@@ -7,8 +7,7 @@ class User{
     private $email;
     private $password;
 
-    function __construct($id,$name,$surname,$age,$email,$password){
-        $this->id=$id;
+    function __construct($name,$surname,$age,$email,$password){
         $this->name=$name;
         $this->surname=$surname;
         $this->age=$age;
@@ -16,9 +15,6 @@ class User{
         $this->password=$password;
     }
     
-    function getId(){
-        return $this->id;
-    }   
     function getName(){
         return $this->name;
     }

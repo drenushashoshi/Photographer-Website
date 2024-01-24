@@ -1,3 +1,7 @@
+<?php
+include_once 'user.php';
+include_once 'userRepository.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,57 +25,54 @@
         </div>
     </header>
 
-   
+   <div>
+        <?php
+        if(isset($_POST['submit'])){
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
+            $age = $_POST['age'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+           $user=new User($name, $surname, $age, $email, $password);
+           $userRepository = new UserRepository();
+           $userRepository->insertUser($user);
+           header('location:dashboard.php');
+        }
+        
+        ?>
+   </div>
     <div class="login-form">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
             <h1>Hello! You can register to the course here:</h1>
             <div class="content">
                 <div class="input-field">
-                    <input type="text" id="name" name="Name"placeholder="Name" autocomplete="name">
+                    <input type="text" id="name" name="name"placeholder="Name" autocomplete="name" required>
                     <div class="error-message" id="nameError"></div>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="surname" name="Surname" placeholder="Surname" autocomplete="surname">
+                    <input type="text" id="surname" name="surname" placeholder="Surname" autocomplete="surname" required>
                     <div class="error-message" id="surnameError"></div>
                 </div>
                 <div class="input-field">
-                    <input type="number" id="age" name="Age" placeholder="Age" autocomplete="age">
+                    <input type="text" id="age" name="age" placeholder="Age" autocomplete="age" required>
                     <div class="error-message" id="ageError"></div>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="email" name="Email" placeholder="Email" autocomplete="email">
+                    <input type="text" id="email" name="email" placeholder="Email" autocomplete="email" required>
                     <div class="error-message" id="emailError"></div>
                 </div>
                 <div class="input-field">
-                    <input type="password" id="password" name="Password" placeholder="Password" autocomplete="new-password">
+                    <input type="password" id="password" name="password" placeholder="Password" autocomplete="new-password" required>
                     <div class="error-message" id="passwordError"></div>
                 </div>
             </div>
           <div class="action">
-            <button onclick="validateForm(event)" name="Submit">Sign in </button>
+            <button type="submit" name="submit">Sign in </button>
           </div>
         </form>
     </div>
-
-    <?php
-    
-    include_once 'user.php';
-    include_once 'userRepository.php';
-
-    if (isset($_POST['Submit'])) {
-        $name = $_POST['Name'];
-        $surname = $_POST['Surname'];
-        $age = $_POST['Age'];
-        $email = $_POST['Email'];
-        $password = $_POST['Password'];
-
-        $user = new User($id,$name, $surname, $age, $email, $password);
-
-        $userRepository = new userRepository();
-        $userRepository->insertUser($user);
-    }
-    ?>
 
     <div class="Teksti">
         <div class="spacer"></div>
@@ -202,7 +203,7 @@
             }
             alert('Succesfully registered!');
         }
-    </script>
+    </script> 
 
 </body>
 </html>

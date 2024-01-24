@@ -1,6 +1,6 @@
 <?php
 
-    include_once('databaseConnection.php');
+    include_once"databaseConnection.php";
 
     class userRepository{
         private $connection;
@@ -12,19 +12,18 @@
         
         function insertUser($user){
             $conn = $this->connection;
-        
-            $id=$user->getId();
+
             $name = $user->getName();
             $surname = $user->getSurname();
             $age = $user->getAge();
             $email = $user->getEmail();
             $password = $user->getPassword();
         
-            $sql = "INSERT INTO user(id, name, surname, age, email, password) VALUES (?,?,?,?,?)";
+            $sql = "INSERT INTO user(name, surname, age, email, password) VALUES (?,?,?,?,?)";
         
             try {
                 $statement = $conn->prepare($sql);
-                $statement->execute([$id,$name, $surname, $age, $email, $password]);
+                $statement->execute([$name, $surname, $age, $email, $password]);
                 echo "<script>alert('Successfully registered!')</script>";
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
@@ -48,8 +47,13 @@
 
             $statement = $conn->prepare($sql);
             $statement->execute([$name, $surname, $age, $email, $password, $id]);
+            if ($statement->errorInfo()[0] !== '00000') {
+                echo "<script>alert('Error: " . $statement->errorInfo()[2] . "')</script>";
+            } else {
+                echo "<script>alert('Updated!')</script>";
+            }
 
-            echo "<script>alert('Updated!')</script>";
+            
 
         }
 

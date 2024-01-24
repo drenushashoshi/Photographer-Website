@@ -1,10 +1,10 @@
 <?php
-$userId=$_GET['id'];
 include 'userRepository.php';
+$userId=$_GET['id'];
 
 $userRepository = new UserRepository();
 
-$user = $strep->getUserById($Id);
+$user = $userRepository->getUserById($userId);
 
 ?>
 
@@ -13,7 +13,6 @@ $user = $strep->getUserById($Id);
 <body>
     <h3>Edit User</h3>
     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-        <input type="text" name="id"  value="<?=$user['id']?>" readonly> <br> <br>
         <input type="text" name="name" value="<?php echo $user['name']?>"> <br> <br>
         <input type="text" name="surname" value="<?php echo $user['surname']?>"> <br> <br>
         <input type="number" name="age" value="<?php echo $user['age']?>"> <br> <br>
@@ -35,7 +34,7 @@ if(isset($_POST['editBtn'])){
     $password = $_POST['password'];
    
     $userRepository->editUser($id, $name, $surname, $age, $email, $password);
-    header("location: users.php");
+    header("location: dashboard.php");
 }
 
 ?>
