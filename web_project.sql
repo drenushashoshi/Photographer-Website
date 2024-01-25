@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 12:47 PM
+-- Generation Time: Jan 25, 2024 at 12:59 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,40 @@ SET time_zone = "+00:00";
 --
 -- Database: `web_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `portofolio`
+--
+
+CREATE TABLE `portofolio` (
+  `id` int(11) NOT NULL,
+  `image_path` varchar(255) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `portofolio`
+--
+
+INSERT INTO `portofolio` (`id`, `image_path`, `description`) VALUES
+(1, 'Portofolio_Pictures/p1.png', 'Eloping In Utah? Here\'s 7 Places to Say I Do!'),
+(2, 'Portofolio_Pictures/p2.png', 'Jack & Brie | Great Salt Lake'),
+(3, 'Portofolio_Pictures/p3.png', 'Yosemite National Park Intimate Wedding'),
+(4, 'Portofolio_Pictures/p4.png', 'Ela & Dallin | First Look'),
+(5, 'Portofolio_Pictures/p5.png', 'Hannah & Stephanie | Patagonia Elopment'),
+(6, 'Portofolio_Pictures/p6.png', 'Selena & Jonathan | Zion National Park'),
+(7, 'Portofolio_Pictures/p7.png', 'Meghan & Nanu | Redwoods'),
+(8, 'Portofolio_Pictures/p8.png', 'Karen & Ben | National Park'),
+(9, 'Portofolio_Pictures/p9.png', 'Mollie & Drew | Moody PNW Couples Session'),
+(10, 'Portofolio_Pictures/p10.png', 'By The Sea | Greece'),
+(11, 'Portofolio_Pictures/p11.png', 'Somewhere, Someone Took A Pic Of The Sunset'),
+(12, 'Portofolio_Pictures/p12.png', 'WildFlower Adventure Session'),
+(13, 'Portofolio_Pictures/p13.png', 'Al & Ben | Adventurous Couples Shoot'),
+(14, 'Portofolio_Pictures/p14.png', 'Shrine Pass Hut Summer Wedding'),
+(15, 'Portofolio_Pictures/p15.png', 'Relaxed And Fun Summer Wedding'),
+(16, 'Portofolio_Pictures/p16.png', 'The Ultimate Elopment Packing List');
 
 -- --------------------------------------------------------
 
@@ -55,6 +89,12 @@ INSERT INTO `user` (`id`, `name`, `surname`, `age`, `email`, `password`, `roli`)
 --
 
 --
+-- Indexes for table `portofolio`
+--
+ALTER TABLE `portofolio`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -63,6 +103,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `portofolio`
+--
+ALTER TABLE `portofolio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
