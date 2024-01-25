@@ -1,12 +1,12 @@
-*{ 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
- } 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     background-image: url(CourseLogin_Pictures/test9.png);
 }
- 
+
 .login-form{
     background-color: rgba(226, 223, 223, 0.45);
     width: 50%;
@@ -67,36 +67,32 @@ body {
 }
 .Teksti{
     width: 100%;
-    padding: 12px 220px 0px 220px;
+    padding: 12px 20px 0px 20px; 
     display: flex;
     flex-direction: column;
     background-color: rgb(239, 238, 238);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 19px;
 }
-.Teksti h2{
+.Teksti h2,
+.Teksti h3{
     text-align: center;
     white-space: pre-wrap;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(85, 72, 55);
 }
-.Teksti h3{
-    text-align: center;
-    white-space: pre-wrap;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(88, 75, 57);
-}
 
 .fundi{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
     background-color: white;
 }
 .fundi img{
-    width: 470px;
-    height: 300px;
+    width: 33.333%;
+    height: auto;
+    margin-bottom: 20px;
+    max-width: 470px;
 }
 footer{
     background-color: rgb(167, 140, 104);
@@ -108,7 +104,7 @@ footer{
 }
 .footermain{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     width: 90%;
 }
 .adresa{
@@ -119,5 +115,23 @@ footer{
     font-size: 17px;
     justify-content: space-around;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+@media (max-width: 768px) {
+    .login-form {
+        width: 80%;
+    }
+    .Teksti {
+        padding: 12px 10px 0px 10px;
+    }
+
+    .footermain {
+        width: 100%;
+    }
+
+    .adresa {
+        width: 100%;
+    }
 }
 
