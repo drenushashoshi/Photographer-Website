@@ -1,15 +1,17 @@
 <?php
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
+include_once "databaseConnection.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-    $hide = "hide"; 
-    if ($_SESSION['roli'] == "admin") {
-        $hide = ""; 
-    } 
+$hide = "hide";
+if ($_SESSION['roli'] == "admin") {
+    $hide = "";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,38 +19,38 @@
     <link rel="stylesheet" href="dashboard.css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <?php
         include("Header.php");
         ?>
     </header>
-    
+
     <h3 style="margin-top:100px">REGISTRATIONS:</h3>
     <table border="1">
-             <tr>
-                 <th>ID</th>
-                 <th>NAME</th>
-                 <th>SURNAME</th>
-                 <th>AGE</th>
-                 <th>EMAIL</th>
-                 <th>PASSWORD</th>
-                 <th>ROLE</th>
-                 <th>Edit</th>
-                 <th>Delete</th>
-                 
-             </tr>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>SURNAME</th>
+            <th>AGE</th>
+            <th>EMAIL</th>
+            <th>PASSWORD</th>
+            <th>ROLE</th>
+            <th>Edit</th>
+            <th>Delete</th>
 
-             <?php 
-             include "DatabaseConnection.php";
-             include_once "userRepository.php";
+        </tr>
 
-             $userRepository = new UserRepository();
+        <?php
+        include_once "userRepository.php";
 
-             $users = $userRepository->getAllUsers();
+        $userRepository = new UserRepository();
 
-             foreach($users as $User){
-                echo 
+        $users = $userRepository->getAllUsers();
+
+        foreach ($users as $User) {
+            echo
                 "
                 <tr>
                      <td>$User[id]</td>
@@ -63,11 +65,63 @@
                      
                 </tr>
                 ";
-             }
+        }
 
-             
-             
-             ?>
+
+
+        ?>
+    </table>
+
+    <h3 style="margin-top: 100px">PORTFOLIO ITEMS:</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>IMAGE PATH</th>
+            <th>DESCRIPTION</th>
+            <th>Last Edited By</th>
+        </tr>
+
+        <?php
+        include_once "PortofolioRepository.php";
+        include_once "userRepository.php";
+
+
+        $portofolioRepository = new PortofolioRepository();
+        $portofolioData = $portofolioRepository->getAllPortofolios();
+        $userRepository = new UserRepository();
+
+        foreach ($portofolioData as $portofolioItem):
+            $lastEditedById = $portofolioItem['last_edited_by'];
+
+            // Check if user is retrieved successfully
+            $lastEditedByUser = $userRepository->getUserById($lastEditedById);
+
+            if ($lastEditedByUser) {
+                echo "
+            <tr>
+                <td>{$portofolioItem['id']}</td>
+                <td>{$portofolioItem['image_path']}</td>
+                <td>{$portofolioItem['description']}</td>
+                <td>{$lastEditedByUser['id']}</td>
+            </tr>
+        ";
+            } else {
+                // Handle the case when the user is not found
+                echo "
+            <tr>
+                <td>{$portofolioItem['id']}</td>
+                <td>{$portofolioItem['image_path']}</td>
+                <td>{$portofolioItem['description']}</td>
+                <td>User not found</td>
+            </tr>
+        ";
+            }
+        endforeach;
+
+        ?>
+
+
     </table>
 </body>
+
 </html>

@@ -1,6 +1,9 @@
 <?php
-session_start();
+
 include 'databaseConnection.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 function isAdmin()
 {
@@ -25,19 +28,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$itemId]);
     }
 
+    
     if (isset($_POST["update"]) && isAdmin()) {
         $itemId = $_POST["item_id"];
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
-
+    
+        // Assume you have user information in your session
+        $lastEditedBy = $_SESSION['id']; // Adjust this based on your session structure
+        echo "User ID in session: $lastEditedBy";
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("UPDATE portofolio SET description = ?, image_path = ? WHERE id = ?");
-        $stmt->execute([$description, $imagePath, $itemId]);
-
-        header("Location: {$_SERVER['REQUEST_URI']}");
+    
+        // Update the portofolio item and set last_edited_by
+        $stmt = $conn->prepare("UPDATE portofolio SET description = ?, image_path = ?, last_edited_by = ? WHERE id = ?");
+        if ($stmt->execute([$description, $imagePath, $lastEditedBy, $itemId])) {
+            echo "Update successful";
+        } else {
+            echo "Update failed: " . $stmt->errorInfo()[2];
+        }
+    
+        header("Location: dashboard.php");
         exit();
     }
+    
 }
+
 
 $conn = (new DatabaseConnection())->startConnection();
 $sql = "SELECT * FROM portofolio";
