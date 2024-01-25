@@ -10,6 +10,12 @@ function isAdmin()
     return isset($_SESSION["admin"]) && $_SESSION["admin"] === true;
 }
 
+$hide = "hide"; 
+    
+if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
+    $hide = ""; 
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["add"]) && isAdmin()) {
         $description = $_POST["description"];
@@ -49,6 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         header("Location: dashboard.php");
         exit();
+
+        
     }
     
 }
