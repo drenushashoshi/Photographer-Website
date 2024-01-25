@@ -140,7 +140,7 @@
                     gets to me. You’ll also probably find me balancing a camera in one hand, 
                     bouquet in the other and a veil around my neck.
                 </p><br>
-                <a href="About.html">
+                <a href="About.php">
                     <button>READ MORE ABOUT ME</button>
                 </a>    
             </div>
@@ -162,7 +162,7 @@
        </div>
        <div class="spacer"></div>
        <h1 class="b">INTERESTED IN WORKING TOGETHER?</h1><br><br><br>
-       <a href="Booking.html"><button class="butoni2">Contact me</button></a>
+       <a href="Booking.php"><button class="butoni2">Contact me</button></a>
        <div class="spacer"></div>
     </main>   
         

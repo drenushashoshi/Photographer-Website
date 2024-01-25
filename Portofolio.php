@@ -99,9 +99,9 @@ $conn = null;
             <ul class="list">
                 <li id="categ">Categories</li>
                 <li><a href="Portofolio.html">All</a> </li>
-                <li><a href="Portofolio_Wedding.html">Weddings</a> </li>
+                <li><a href="Portofolio_Wedding.php">Weddings</a> </li>
                 <li><a href="Portofolio-Couples.php">Couples</a></li>
-                <li><a href="Portofolio-Nature.html">Nature</a> </li>
+                <li><a href="Portofolio-Nature.php">Nature</a> </li>
             </ul>
         </div>
 

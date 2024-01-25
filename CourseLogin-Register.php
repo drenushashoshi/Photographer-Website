@@ -1,9 +1,9 @@
 <?php
-include_once 'user.php';
-include_once 'userRepository.php';
+    include_once 'user.php';
+    include_once 'userRepository.php';
 
 
-require_once 'databaseConnection.php'; 
+    require_once 'databaseConnection.php'; 
 
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
