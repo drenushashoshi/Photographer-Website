@@ -1,3 +1,14 @@
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    $hide = "hide"; 
+    
+    if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
+        $hide = ""; 
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,17 +26,8 @@
 </head>
 
 <body>
-    <header>
-        <img src="Logo.png" alt="Logo">
-        <div class="pages">
-            <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="About.html">About</a> </li>
-                <li><a href="Portofolio.html">Portofolio</a> </li>
-                <li><a href="CourseLogin.html">Course Login</a></li>
-                <li><a href="Booking.html">Booking</a> </li>
-            </ul>
-        </div>
+<header>
+        <?php include('Header.php'); ?>
     </header>
     <main>
         <div class="bgphoto">
@@ -54,22 +56,23 @@
                 <img src="Travel_Pictures/t7.jpg" alt="" style="width: 300px;height: 200px;">
             </div>
         </div>
-        <div class="travel">
-            <div class="image">.</div>
-            <div class="travelDate">
-                <h1>Travel Dates</h1>
-                <h6>2024</h6>
-                <p>ARCHES NATIONAL PARK</p>
-                <h4>April 22-23,</h4>
-                <h6>2024</h6>
-                <p>ZION NATIONAL PARK</p>
-                <h4>May 3-5,</h4>
-                <h6>2024</h6>
-                <p>JACKSON, WYOMING</p>
-                <h4>July 11-13, 21-22, Sept 17-19</h4>
-                <button class="button"><a href="Booking.html">CONTACT</a></button>
-            </div>
-        </div>
+
+        <?php
+        include('travelingScheduleData.php');
+
+        echo '<div class="travel">';
+        echo '<div class="image">.</div>';
+        echo '<div class="travelDate">';
+        echo '<h1>Travel Dates</h1>';
+        echo '<h6>2024</h6>';
+        foreach ($travelDates as $date => $location) {
+            echo '<p>' . $location . '</p>';
+            echo '<h4>' . $date . '</h4>';
+        }
+        echo '<button class="button"><a href="Booking.html">CONTACT</a></button>';
+        echo '</div>';
+        echo '</div>';
+        ?>
         <form id="newsletter-form">
             <div class="container">
                 <h2>Sign-Up for our Newsletter</h2>
