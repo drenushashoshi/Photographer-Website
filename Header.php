@@ -32,11 +32,11 @@
         align-items: center;
         list-style: none;
         padding: 0;
-        width: 85%;
+        width: 70%;
     }
 
     .pages ul li {
-        margin-left: 150px;
+        margin-left: 130px;
         color: black;
         text-align: center;
         font-family: sans-serif;
@@ -57,12 +57,12 @@
         <img src="Logo.png" alt="Logo">
         <div class="pages">
             <ul>
+                <li><a href="dashboard.php" class="<?php echo $hide?>">Dashboard</a></li>
                 <li><a href="Home.php">Home</a></li>
                 <li><a href="About.php">About</a></li>
                 <li><a href="Portofolio.php">Portofolio</a></li>
                 <li><a href="CourseLogin.php">Course Login</a></li>
                 <li> <a href="Booking.php">Booking</a></li>
-                <li><a href="dashboard.php" class="<?php echo $hide?>">Dashboard</a></li>
             </ul>
         </div>
     </header>
