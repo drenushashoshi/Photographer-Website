@@ -1,6 +1,18 @@
 <?php
 include_once 'user.php';
 include_once 'userRepository.php';
+
+
+require_once 'databaseConnection.php'; 
+
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $hide = "hide"; 
+    if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
+        $hide = ""; 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +42,7 @@ include_once 'userRepository.php';
            $user=new User($name, $surname, $age, $email, $password);
            $userRepository = new UserRepository();
            $userRepository->insertUser($user);
-           header('location:dashboard.php');
+           header('location:Course.php');
         }
         
         ?>

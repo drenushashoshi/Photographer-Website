@@ -6,9 +6,10 @@ require_once 'databaseConnection.php';
     }
 
     $hide = "hide"; 
-    if ($_SESSION['roli'] == "admin") {
+
+    if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
         $hide = ""; 
-    } 
+    }
 
 if (isset($_POST['loginbtn'])) {
     if (empty($_POST['email']) || empty($_POST['password'])) {
@@ -85,7 +86,7 @@ if (isset($_POST['loginbtn'])) {
                 </div>
             </div>
             <div class="action">
-                <a class="f1" href="CourseLogin-Register.html">Register</a>
+                <a class="f1" href="CourseLogin-Register.php">Register</a>
             
                 <button  name="loginbtn" class="f">Login</button><br>
             </div><br>

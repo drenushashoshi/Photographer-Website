@@ -43,18 +43,21 @@
         
         public function editUser($id, $name, $surname, $age, $email, $password){
             $conn = $this->connection;
-            $sql = "UPDATE user SET name=?, surname=?, age=?, email=?, password=? WHERE Id=?";
 
-            $statement = $conn->prepare($sql);
-            $statement->execute([$name, $surname, $age, $email, $password, $id]);
-            if ($statement->errorInfo()[0] !== '00000') {
-                echo "<script>alert('Error: " . $statement->errorInfo()[2] . "')</script>";
-            } else {
+            $conn->beginTransaction();
+
+            try {
+                $sql = "UPDATE user SET name=?, surname=?, age=?, email=?, password=? WHERE id=?";
+                $statement = $conn->prepare($sql);
+                $statement->execute([$name, $surname, $age, $email, $password, $id]);
+
+                $conn->commit();
+
                 echo "<script>alert('Updated!')</script>";
+            } catch (PDOException $e) {
+                $conn->rollBack();
+                echo "Error: " . $e->getMessage();
             }
-
-            
-
         }
 
         function deleteUser($id){
@@ -68,9 +71,10 @@
         function getUserById($id){
             $conn = $this->connection;
 
-            $sql = "SELECT * FROM user WHERE id='$id'";
+            $sql = "SELECT * FROM user WHERE id=?";
 
-            $statement = $conn->query($sql);
+            $statement = $conn->prepare($sql);
+            $statement->execute([$id]);
             $user=$statement->fetch();
 
             return $user;

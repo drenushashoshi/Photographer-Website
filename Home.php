@@ -4,11 +4,12 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-
+    
     $hide = "hide"; 
-    if ($_SESSION['roli'] == "admin") {
+    
+    if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
         $hide = ""; 
-    } 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +78,7 @@
                 ?>
             </div>
             <br><br>
-            <a href="Portofolio.html">
+            <a href="Portofolio.php">
                 <button class="butoni1">CHECK MORE OF MY WORK</button>
             </a>
         </div>

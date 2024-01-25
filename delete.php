@@ -8,5 +8,5 @@ include_once 'userRepository.php';
 $userRepository = new userRepository();
 $userRepository->deleteUser($userId);
 
-header("location: users.php");
+header("location: dashboard.php");
 ?>

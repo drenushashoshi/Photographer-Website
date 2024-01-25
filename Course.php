@@ -41,6 +41,17 @@
     th {
       background-color: burlywood;
     } 
+    .logout{
+        border-radius: 20px;
+        background-color:darkgray;
+        outline-style: solid;
+        border-color: black;
+        width: 150px;
+        height: 40px;
+        margin-left: 43%;
+        font-size: 18px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
   </style>
 </head>
 <body>
@@ -166,8 +177,8 @@
                 <td>9am-11am</td>
             </tr>
 
-        </table>
-        <button><a href="logout.php">Logout</a></button>
+        </table><br><br>
+        <button class="logout"><a href="logout.php">Logout</a></button>
     </main>
     
 
