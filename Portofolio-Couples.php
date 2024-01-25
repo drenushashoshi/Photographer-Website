@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $imagePath = $_POST["image_path"];
 
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("INSERT INTO portofolio (description, image_path) VALUES (?, ?)");
+        $stmt = $conn->prepare("INSERT INTO portofolio_couples (description, image_path) VALUES (?, ?)");
         $stmt->execute([$description, $imagePath]);
     }
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $itemId = $_POST["item_id"];
 
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("DELETE FROM portofolio WHERE id = ?");
+        $stmt = $conn->prepare("DELETE FROM portofolio_couples WHERE id = ?");
         $stmt->execute([$itemId]);
     }
 
@@ -40,28 +40,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
     
-        // Assume you have user information in your session
-        $lastEditedBy = $_SESSION['id']; // Adjust this based on your session structure
-        echo "User ID in session: $lastEditedBy";
+        $lastEditedBy = $_SESSION['id']; 
+       
         $conn = (new DatabaseConnection())->startConnection();
     
-        // Update the portofolio item and set last_edited_by
-        $stmt = $conn->prepare("UPDATE portofolio SET description = ?, image_path = ?, last_edited_by = ? WHERE id = ?");
-        if ($stmt->execute([$description, $imagePath, $lastEditedBy, $itemId])) {
-            echo "Update successful";
-        } else {
-            echo "Update failed: " . $stmt->errorInfo()[2];
-        }
-    
-
-        
+        $stmt = $conn->prepare("UPDATE portofolio_couples SET description = ?, image_path = ?, last_edited_by = ? WHERE id = ?");
+        $stmt->execute([$description, $imagePath, $lastEditedBy, $itemId]);
     }
     
 }
 
 
 $conn = (new DatabaseConnection())->startConnection();
-$sql = "SELECT * FROM portofolio";
+$sql = "SELECT * FROM portofolio_couples";
 $result = $conn->query($sql);
 
 $portofolioData = [];
@@ -75,32 +66,30 @@ if ($result->rowCount() > 0) {
 $conn = null;
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElaDoe-Portofolio</title>
-    <link rel="stylesheet" href="Portofolio.css">
+    <title>Portofolio-Couples</title>
+    <link rel="stylesheet" href="Portofolio-Couples.css">
 </head>
-
 <body>
     <header>
-        <?php include('Header.php'); ?>
+        <?php include('Header.php');?>
     </header>
     <main>
         <div class="bgphoto">
             <h1>RELIVE THE STORY OF THE DAY</h1>
-            <h3>See a glimpse into the story of couples' wedding days, engagement season, and more below</h3>
+            <h3>see a glimpse into the story of couples wedding days, engagement season and more below  </h3>
         </div>
+
         <div class="categories">
             <ul class="list">
                 <li id="categ">Categories</li>
-                <li><a href="Portofolio.html">All</a> </li>
+                <li><a href="Portofolio.php">All</a> </li>
                 <li><a href="Portofolio_Wedding.html">Weddings</a> </li>
-                <li><a href="Portofolio-Couples.php">Couples</a></li>
+                <li><a href="Portofolio-Couples.html">Couples</a></li>
                 <li><a href="Portofolio-Nature.html">Nature</a> </li>
             </ul>
         </div>
@@ -130,7 +119,6 @@ $conn = null;
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
-
             <?php if (isAdmin()): ?>
                 <form method="post" action="">
                     <label for="description">Description:</label>
@@ -142,30 +130,26 @@ $conn = null;
             <?php endif; ?>
         </div>
     </main>
-
     <footer>
         <br>
         <div class="logot">
-            <a href=""><img src="instagram1.png" alt="" width="40px" height="40px"></a>
-            <a href=""><img src="Facebook1.png" alt="" width="60px" height="40px"></a>
-            <a href=""><img src="Pinterest1.png" alt="" width="40px" height="40px"></a>
+            <img src="instagram1.png" alt="">
+            <img src="Facebook1.png" alt="">
+            <img src="Pinterest1.png" alt="">
         </div>
         <div class="footermain">
             <div class="adresa">
-                <p>CONTACT</p><br>
-                <p>865-323-7622</p><br>
-                <p>eladoe@gmail.com</p><br>
-                <hr><br>
-                Colorado, Arizona and Beyond
-                <p></p><br>
+                <p>CONTACT</p>
+                <p>865-323-7622</p>
+                <p>eladoe@gmail.com</p>
+                <hr>
+                <p>Colorado, Arizona and Beyond</p>
             </div>
             <div class="footerfoto">
                 <img src="footer.png" alt="">
-            </div>
-        </div>
-        <p>Privacy Policy</p><br>
+            </div>   
+        </div><br><br>
     </footer>
-
     <script>
         function openEditModal(itemId) {
             var item = <?php echo json_encode($portofolioData); ?>;
@@ -182,5 +166,4 @@ $conn = null;
         }
     </script>
 </body>
-
 </html>

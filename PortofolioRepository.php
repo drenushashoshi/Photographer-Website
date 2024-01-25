@@ -27,6 +27,21 @@ class PortofolioRepository
 
         return $portofolios;
     }
+    public function getAllCouples()
+    {
+        $sql = "SELECT * FROM portofolio_couples";
+        $statement = $this->connection->query($sql);
+
+        $portofolioCouples = [];
+
+        if ($statement->rowCount() > 0) {
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $portofolioCouples[] = $row;
+            }
+        }
+
+        return $portofolioCouples;
+    }
 
     public function insertPortofolio($description, $imagePath, $lastEditedBy)
     {
