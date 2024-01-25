@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $imagePath = $_POST["image_path"];
 
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("INSERT INTO portofolio_couples (description, image_path) VALUES (?, ?)");
+        $stmt = $conn->prepare("INSERT INTO portofolio_nature (description, image_path) VALUES (?, ?)");
         $stmt->execute([$description, $imagePath]);
     }
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $itemId = $_POST["item_id"];
 
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("DELETE FROM portofolio_couples WHERE id = ?");
+        $stmt = $conn->prepare("DELETE FROM portofolio_nature WHERE id = ?");
         $stmt->execute([$itemId]);
     }
 
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
         $conn = (new DatabaseConnection())->startConnection();
     
-        $stmt = $conn->prepare("UPDATE portofolio_couples SET description = ?, image_path = ?, last_edited_by = ? WHERE id = ?");
+        $stmt = $conn->prepare("UPDATE portofolio_nature SET description = ?, image_path = ?, last_edited_by = ? WHERE id = ?");
         $stmt->execute([$description, $imagePath, $lastEditedBy, $itemId]);
     }
     
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 $conn = (new DatabaseConnection())->startConnection();
-$sql = "SELECT * FROM portofolio_couples";
+$sql = "SELECT * FROM portofolio_nature";
 $result = $conn->query($sql);
 
 $portofolioData = [];
@@ -64,19 +64,18 @@ if ($result->rowCount() > 0) {
 }
 
 $conn = null;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio-Couples</title>
-    <link rel="stylesheet" href="Portofolio-Couples.css">
+    <title>Portofolio-Nature</title>
+    <link rel="stylesheet" href="Portofolio-Nature.css">
 </head>
 <body>
     <header>
-        <?php include('Header.php');?>
+        <?php include('Header.php'); ?>
     </header>
     <main>
         <div class="bgphoto">
