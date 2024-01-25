@@ -53,8 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Update failed: " . $stmt->errorInfo()[2];
         }
     
-        header("Location: dashboard.php");
-        exit();
 
         
     }

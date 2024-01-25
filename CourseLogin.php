@@ -23,7 +23,7 @@ if (isset($_POST['loginbtn'])) {
 
         if ($conn) {
             try {
-                $query = "SELECT * FROM user WHERE email = :email AND password = :password";
+                $query = "SELECT id, email, roli FROM user WHERE email = :email AND password = :password";
                 $stmt = $conn->prepare($query);
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':password', $password);
@@ -33,6 +33,7 @@ if (isset($_POST['loginbtn'])) {
                     session_start();
                     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+                    $_SESSION['id'] = $user['id'];
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $password;
                     $_SESSION['roli'] = $user['roli'];
