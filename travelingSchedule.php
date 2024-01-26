@@ -1,13 +1,13 @@
 <?php
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-    
-    $hide = "hide"; 
-    
-    if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
-        $hide = ""; 
-    }
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$hide = "hide";
+
+if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
+    $hide = "";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-<header>
+    <header>
         <?php include('Header.php'); ?>
     </header>
     <main>
@@ -78,15 +78,15 @@
                 <h2>Sign-Up for our Newsletter</h2>
                 <p>Through them you'll know for any changes in my schedule</p>
             </div>
-    
+
             <div class="container" style="background-color: white">
                 <input type="text" placeholder="Name" name="name" id="name" required>
                 <div class="error-message" id="name-error"></div>
-    
+
                 <input type="text" placeholder="Email address" name="mail" id="mail" required>
                 <div class="error-message" id="mail-error"></div>
             </div>
-    
+
             <div class="container">
                 <input type="submit" value="Subscribe" onclick="return validateForm()">
             </div>
@@ -110,7 +110,7 @@
             </div>
             <div class="footerfoto">
                 <img src="footer.png" alt="">
-            </div>   
+            </div>
         </div>
         <p>Privacy Policy</p><br>
     </footer>
@@ -137,7 +137,7 @@
             }
 
             alert('Form submitted successfully!');
-            return ;
+            return;
         }
     </script>
 </body>

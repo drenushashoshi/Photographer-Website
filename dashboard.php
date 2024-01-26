@@ -144,7 +144,6 @@ if ($_SESSION['roli'] == "admin") {
         foreach ($portofolioData as $portofolioItem):
             $lastEditedById = $portofolioItem['last_edited_by'];
 
-           
             $lastEditedByUser = $userRepository->getUserById($lastEditedById);
 
             if ($lastEditedByUser) {
@@ -194,7 +193,6 @@ if ($_SESSION['roli'] == "admin") {
         foreach ($portofolioData as $portofolioItem):
             $lastEditedById = $portofolioItem['last_edited_by'];
 
-           
             $lastEditedByUser = $userRepository->getUserById($lastEditedById);
 
             if ($lastEditedByUser) {
@@ -221,7 +219,60 @@ if ($_SESSION['roli'] == "admin") {
         ?>
 
 
-    </table><br><br>
+    </table>
+
+    <h3 style="margin-top: 100px">CONTACT FORM DATA:</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Fiancé's First Name</th>
+            <th>Fiancé's Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Event Date</th>
+            <th>Event Type</th>
+            <th>Event Location</th>
+            <th>Number of Guests</th>
+            <th>Love Story</th>
+            <th>Contact Method</th>
+            <th>How Found</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        <?php
+        include_once "ContactFormRepository.php";
+
+        $contactFormRepository = new ContactFormRepository();
+        $contactFormData = $contactFormRepository->getAllContactFormData();
+
+        foreach ($contactFormData as $contactForm) {
+            echo "
+        <tr>
+            <td>{$contactForm['id']}</td>
+            <td>{$contactForm['first_name']}</td>
+            <td>{$contactForm['last_name']}</td>
+            <td>{$contactForm['fiance_first_name']}</td>
+            <td>{$contactForm['fiance_last_name']}</td>
+            <td>{$contactForm['email']}</td>
+            <td>{$contactForm['phone']}</td>
+            <td>{$contactForm['event_date']}</td>
+            <td>{$contactForm['event_type']}</td>
+            <td>{$contactForm['event_location']}</td>
+            <td>{$contactForm['guests']}</td>
+            <td>{$contactForm['love_story']}</td>
+            <td>{$contactForm['contact_method']}</td>
+            <td>{$contactForm['how_found']}</td>
+            <td><a href='edit_contact_form.php?id={$contactForm['id']}'>Edit</a> </td>
+            <td><a href='delete_contact_form.php?id={$contactForm['id']}'>Delete</a></td>
+        </tr>
+    ";
+        }
+        ?>
+
+    </table>
 
 </body>
 

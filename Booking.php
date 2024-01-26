@@ -1,3 +1,16 @@
+<?php
+require_once 'save_contact_form.php';
+require_once 'databaseConnection.php';
+
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+
+$hide = "hide";
+if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
+  $hide = "";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,16 +23,7 @@
 
 <body>
   <header>
-    <img src="Logo.png" alt="Logo">
-    <div class="pages">
-      <ul>
-        <li><a href="Home.html">Home</a></li>
-        <li><a href="About.html">About</a> </li>
-        <li><a href="Portofolio.html">Portofolio</a> </li>
-        <li><a href="CourseLogin.html">Course Login</a></li>
-        <li><a href="Booking.html">Booking</a> </li>
-      </ul>
-    </div>
+    <?php include('Header.php'); ?>
   </header>
   <main>
     <div class="bgphoto">
@@ -27,19 +31,19 @@
     </div>
     <img src="Booking_Pictures/PlanningPic.png" alt="">
 
-    <form id="myform">
+    <form id="myform" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-      <label for="your-name">Your Name:</label>
+
+      <label for=" your-name">Your Name:</label>
       <div id="your-name">
         <label for="first-name"></label>
         <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
 
         <label for="last-name"></label>
         <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
-        
       </div>
-        <div class="error-message" id="first-name-error"></div>
-        <div class="error-message" id="last-name-error" style="margin-left: 60%;"></div>
+      <div class="error-message" id="first-name-error"></div>
+      <div class="error-message" id="last-name-error" style="margin-left: 60%;"></div>
 
       <label for="fiance-name">Fiancé's Name:</label>
       <div id="fiance-name">
@@ -113,31 +117,23 @@
 
       <button type="submit" onclick="validateForm(event)">Submit</button>
     </form>
-
   </main>
   <footer>
-    <br>
-    <div class="logot">
-        <a href=""><img src="instagram1.png" alt="" width="40px" height="40px"></a>
-        <a href=""><img src="Facebook1.png" alt="" width="60px" height="40px"></a>
-        <a href=""><img src="Pinterest1.png" alt="" width="40px" height="40px"></a>
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p>Email: example@example.com</p>
+      <p>Phone: +1 234 567 890</p>
     </div>
-    <div class="footermain">
-        <div class="adresa">
-            <p>CONTACT</p><br>
-            <p>865-323-7622</p><br>
-            <p>eladoe@gmail.com</p><br>
-            <hr><br>
-            Colorado, Arizona and Beyond
-            <p></p><br>
-        </div>
-        <div class="footerfoto">
-            <img src="footer.png" alt="">
-        </div>   
+    <div class="social-icons">
+      <h3>Follow Me</h3>
+      <a href="#"><img src="Booking_Pictures/FacebookIcon.png" alt="Facebook"></a>
+      <a href="#"><img src="Booking_Pictures/InstagramIcon.png" alt="Instagram"></a>
+      <a href="#"><img src="Booking_Pictures/TwitterIcon.png" alt="Twitter"></a>
     </div>
-    <p>Privacy Policy</p><br>
-</footer>
+  </footer>
+
   <script>
+  document.addEventListener('DOMContentLoaded', function () {
     let nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
     let surnameRegex = /^[A-Z][a-zA-Z]{2,}$/;
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -252,11 +248,13 @@
         notFilledErrorHowFound.innerText = '*Where you found me is required.';
         return;
       }
-
+      document.getElementById('myform').submit();
       alert('Contact Form submitted successfully!');
     }
-  </script>
+    document.getElementById('myform').addEventListener('submit', validateForm);
+  });
 
+  </script>
 </body>
 
 </html>
