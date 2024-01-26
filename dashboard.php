@@ -3,8 +3,9 @@ include_once "databaseConnection.php";
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-function isSessionTimedOut() {
-    $timeout = 3600; 
+function isSessionTimedOut()
+{
+    $timeout = 3600;
     $currentTime = time();
 
     if (isset($_SESSION['loginTime']) && ($currentTime - $_SESSION['loginTime']) > $timeout) {
@@ -99,6 +100,7 @@ if ($_SESSION['roli'] == "admin") {
             <th>IMAGE PATH</th>
             <th>DESCRIPTION</th>
             <th>Last Edited By</th>
+            <th>Added By</th>
         </tr>
 
         <?php
@@ -154,6 +156,7 @@ if ($_SESSION['roli'] == "admin") {
             <th>IMAGE PATH</th>
             <th>DESCRIPTION</th>
             <th>Last Edited By</th>
+            <th>Added By</th>
         </tr>
 
         <?php
@@ -167,28 +170,34 @@ if ($_SESSION['roli'] == "admin") {
 
         foreach ($portofolioData as $portofolioItem):
             $lastEditedById = $portofolioItem['last_edited_by'];
+            $addedById = $portofolioItem['added_by'];
 
             $lastEditedByUser = $userRepository->getUserById($lastEditedById);
+            $addedByUser = $userRepository->getUserById($addedById);
+
+            echo "
+        <tr>
+            <td>{$portofolioItem['id']}</td>
+            <td>{$portofolioItem['image_path']}</td>
+            <td>{$portofolioItem['description']}</td>
+            <td>";
 
             if ($lastEditedByUser) {
-                echo "
-            <tr>
-                <td>{$portofolioItem['id']}</td>
-                <td>{$portofolioItem['image_path']}</td>
-                <td>{$portofolioItem['description']}</td>
-                <td>{$lastEditedByUser['id']}</td>
-            </tr>
-        ";
+                echo "{$lastEditedByUser['id']}";
             } else {
-                echo "
-            <tr>
-                <td>{$portofolioItem['id']}</td>
-                <td>{$portofolioItem['image_path']}</td>
-                <td>{$portofolioItem['description']}</td>
-                <td>User not found</td>
-            </tr>
-        ";
+                echo "No one edited";
             }
+
+            echo "</td>
+            <td>";
+
+            if ($addedByUser) {
+                echo "{$addedByUser['id']}";
+            } else {
+                echo "Added through database";
+            }
+            echo "</td>
+        </tr>";
         endforeach;
 
         ?>
@@ -203,6 +212,7 @@ if ($_SESSION['roli'] == "admin") {
             <th>IMAGE PATH</th>
             <th>DESCRIPTION</th>
             <th>Last Edited By</th>
+            <th>Added By</th>
         </tr>
 
         <?php
@@ -216,28 +226,34 @@ if ($_SESSION['roli'] == "admin") {
 
         foreach ($portofolioData as $portofolioItem):
             $lastEditedById = $portofolioItem['last_edited_by'];
+            $addedById = $portofolioItem['added_by'];
 
             $lastEditedByUser = $userRepository->getUserById($lastEditedById);
+            $addedByUser = $userRepository->getUserById($addedById);
+
+            echo "
+        <tr>
+            <td>{$portofolioItem['id']}</td>
+            <td>{$portofolioItem['image_path']}</td>
+            <td>{$portofolioItem['description']}</td>
+            <td>";
 
             if ($lastEditedByUser) {
-                echo "
-            <tr>
-                <td>{$portofolioItem['id']}</td>
-                <td>{$portofolioItem['image_path']}</td>
-                <td>{$portofolioItem['description']}</td>
-                <td>{$lastEditedByUser['id']}</td>
-            </tr>
-        ";
+                echo "{$lastEditedByUser['id']}";
             } else {
-                echo "
-            <tr>
-                <td>{$portofolioItem['id']}</td>
-                <td>{$portofolioItem['image_path']}</td>
-                <td>{$portofolioItem['description']}</td>
-                <td>User not found</td>
-            </tr>
-        ";
+                echo "No one edited";
             }
+
+            echo "</td>
+            <td>";
+
+            if ($addedByUser) {
+                echo "{$addedByUser['id']}";
+            } else {
+                echo "Added through database";
+            }
+            echo "</td>
+        </tr>";
         endforeach;
 
         ?>
@@ -252,6 +268,7 @@ if ($_SESSION['roli'] == "admin") {
             <th>IMAGE PATH</th>
             <th>DESCRIPTION</th>
             <th>Last Edited By</th>
+            <th>Added By</th>
         </tr>
 
         <?php
@@ -265,27 +282,34 @@ if ($_SESSION['roli'] == "admin") {
 
         foreach ($portofolioData as $portofolioItem):
             $lastEditedById = $portofolioItem['last_edited_by'];
+            $addedById = $portofolioItem['added_by'];
 
             $lastEditedByUser = $userRepository->getUserById($lastEditedById);
+            $addedByUser = $userRepository->getUserById($addedById);
+
+            echo "
+        <tr>
+            <td>{$portofolioItem['id']}</td>
+            <td>{$portofolioItem['image_path']}</td>
+            <td>{$portofolioItem['description']}</td>
+            <td>";
+
             if ($lastEditedByUser) {
-                echo "
-            <tr>
-                <td>{$portofolioItem['id']}</td>
-                <td>{$portofolioItem['image_path']}</td>
-                <td>{$portofolioItem['description']}</td>
-                <td>{$lastEditedByUser['id']}</td>
-            </tr>
-        ";
+                echo "{$lastEditedByUser['id']}";
             } else {
-                echo "
-            <tr>
-                <td>{$portofolioItem['id']}</td>
-                <td>{$portofolioItem['image_path']}</td>
-                <td>{$portofolioItem['description']}</td>
-                <td>User not found</td>
-            </tr>
-        ";
+                echo "No one edited";
             }
+
+            echo "</td>
+            <td>";
+
+            if ($addedByUser) {
+                echo "{$addedByUser['id']}";
+            } else {
+                echo "Added through database";
+            }
+            echo "</td>
+        </tr>";
         endforeach;
 
         ?>

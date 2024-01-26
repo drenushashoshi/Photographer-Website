@@ -4,8 +4,9 @@ include 'databaseConnection.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-function isSessionTimedOut() {
-    $timeout = 3600; 
+function isSessionTimedOut()
+{
+    $timeout = 3600;
     $currentTime = time();
 
     if (isset($_SESSION['loginTime']) && ($currentTime - $_SESSION['loginTime']) > $timeout) {
@@ -30,10 +31,10 @@ function isAdmin()
     return isset($_SESSION["admin"]) && $_SESSION["admin"] === true;
 }
 
-$hide = "hide"; 
-    
+$hide = "hide";
+
 if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
-    $hide = ""; 
+    $hide = "";
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -41,9 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
 
+        $addedBy = $_SESSION['id'];
+
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("INSERT INTO portofolio_couples (description, image_path) VALUES (?, ?)");
-        $stmt->execute([$description, $imagePath]);
+        $stmt = $conn->prepare("INSERT INTO portofolio_couples (description, image_path, added_by) VALUES (?, ?, ?)");
+        $stmt->execute([$description, $imagePath, $addedBy]);
+
+        $lastInsertedId = $conn->lastInsertId();
+        echo "The last inserted ID is: $lastInsertedId";
     }
 
     if (isset($_POST["delete"]) && isAdmin()) {
@@ -54,20 +60,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$itemId]);
     }
 
-    
+
     if (isset($_POST["update"]) && isAdmin()) {
         $itemId = $_POST["item_id"];
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
-    
-        $lastEditedBy = $_SESSION['id']; 
-       
+
+        $lastEditedBy = $_SESSION['id'];
+
         $conn = (new DatabaseConnection())->startConnection();
-    
+
         $stmt = $conn->prepare("UPDATE portofolio_couples SET description = ?, image_path = ?, last_edited_by = ? WHERE id = ?");
         $stmt->execute([$description, $imagePath, $lastEditedBy, $itemId]);
     }
-    
+
 }
 
 
@@ -88,20 +94,22 @@ $conn = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio-Couples</title>
     <link rel="stylesheet" href="Portofolio-Couples.css">
 </head>
+
 <body>
     <header>
-        <?php include('Header.php');?>
+        <?php include('Header.php'); ?>
     </header>
     <main>
         <div class="bgphoto">
             <h1>RELIVE THE STORY OF THE DAY</h1>
-            <h3>see a glimpse into the story of couples wedding days, engagement season and more below  </h3>
+            <h3>see a glimpse into the story of couples wedding days, engagement season and more below </h3>
         </div>
 
         <div class="categories">
@@ -118,7 +126,9 @@ $conn = null;
             <?php foreach ($portofolioData as $portofolioItem): ?>
                 <div class="portfolio-item">
                     <img src="<?php echo $portofolioItem['image_path']; ?>" alt="Photo">
-                    <p><?php echo $portofolioItem['description']; ?></p>
+                    <p>
+                        <?php echo $portofolioItem['description']; ?>
+                    </p>
 
                     <?php if (isAdmin()): ?>
                         <form method="post" action="">
@@ -131,7 +141,8 @@ $conn = null;
                             <input type="hidden" name="update" value="1">
                             <input type="hidden" name="item_id" value="<?php echo $portofolioItem['id']; ?>">
                             <label for="editDescription">Description:</label>
-                            <input type="text" name="description" value="<?php echo $portofolioItem['description']; ?>" required>
+                            <input type="text" name="description" value="<?php echo $portofolioItem['description']; ?>"
+                                required>
                             <label for="editImagePath">Image Path:</label>
                             <input type="text" name="image_path" value="<?php echo $portofolioItem['image_path']; ?>" required>
                             <button type="submit" name="update">Update Item</button>
@@ -167,4 +178,5 @@ $conn = null;
         }
     </script>
 </body>
+
 </html>

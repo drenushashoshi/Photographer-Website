@@ -41,10 +41,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
 
+        $addedBy = $_SESSION['id'];
+
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("INSERT INTO portofolio_nature (description, image_path) VALUES (?, ?)");
-        $stmt->execute([$description, $imagePath]);
+        $stmt = $conn->prepare("INSERT INTO portofolio_nature (description, image_path, added_by) VALUES (?, ?, ?)");
+        $stmt->execute([$description, $imagePath, $addedBy]);
+
+        $lastInsertedId = $conn->lastInsertId();
+        echo "The last inserted ID is: $lastInsertedId";
     }
+
 
     if (isset($_POST["delete"]) && isAdmin()) {
         $itemId = $_POST["item_id"];

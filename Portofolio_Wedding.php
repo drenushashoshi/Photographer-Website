@@ -40,10 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["add"]) && isAdmin()) {
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
-
+    
+        $addedBy = $_SESSION['id']; 
+    
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("INSERT INTO portofolio_weddings (description, image_path) VALUES (?, ?)");
-        $stmt->execute([$description, $imagePath]);
+        $stmt = $conn->prepare("INSERT INTO portofolio_weddings(description, image_path, added_by) VALUES (?, ?, ?)");
+        $stmt->execute([$description, $imagePath, $addedBy]);
+
+        $lastInsertedId = $conn->lastInsertId();
+    echo "The last inserted ID is: $lastInsertedId";
     }
 
     if (isset($_POST["delete"]) && isAdmin()) {
