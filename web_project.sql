@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2024 at 03:07 PM
+-- Generation Time: Jan 26, 2024 at 04:12 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -150,6 +150,41 @@ INSERT INTO `portofolio_nature` (`id`, `image_path`, `description`, `last_edited
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `portofolio_weddings`
+--
+
+CREATE TABLE `portofolio_weddings` (
+  `id` int(11) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `image_path` varchar(255) DEFAULT NULL,
+  `last_edited_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `portofolio_weddings`
+--
+
+INSERT INTO `portofolio_weddings` (`id`, `description`, `image_path`, `last_edited_by`) VALUES
+(1, 'Eloping In Utah? Here\'s 7 Places to Say I Do!', 'Portofolio_Pictures/Weddings/p1.png', NULL),
+(2, 'Jack & Brie | Great Salt Lake', 'Portofolio_Pictures/Weddings/p2.png', NULL),
+(3, 'Mike&Kelsy | West Desert Elopement', 'Portofolio_Pictures/Weddings/p3.png', 2),
+(4, 'Selena & Jonathan | Zion National Park', 'Portofolio_Pictures/Weddings/p4.png', NULL),
+(5, 'Ela & Dallin | First Look', 'Portofolio_Pictures/Weddings/p5.png', NULL),
+(6, 'Audrey & Connor | Stanley, Idaho', 'Portofolio_Pictures/Weddings/p6.png', NULL),
+(7, 'Candid Winter Wedding | Vail, Colorado', 'Portofolio_Pictures/Weddings/p7.png', NULL),
+(8, 'Shelby & Aaron | Non-Traditional Wedding', 'Portofolio_Pictures/Weddings/p8.png', NULL),
+(9, 'The Manor House | The Manor House Wedding', 'Portofolio_Pictures/Weddings/p9.png', NULL),
+(10, 'Micah & Taylor | Union On 8th Winter Wedding', 'Portofolio_Pictures/Weddings/p10.png', NULL),
+(11, 'Broch & Wajiha | Prospect House Wedding', 'Portofolio_Pictures/Weddings/p11.png', NULL),
+(12, 'Krista & Denise | Ma Maison Wedding', 'Portofolio_Pictures/Weddings/p12.png', NULL),
+(13, 'Taylor & Taylor | Hacienda Del Ago', 'Portofolio_Pictures/Weddings/p13.png', NULL),
+(14, 'Hannah & Stephanie | Patagonia Elopment', 'Portofolio_Pictures/Weddings/p14.png', NULL),
+(15, 'Ela & Jack | Great Salt Lake First Look', 'Portofolio_Pictures/Weddings/p15.png', NULL),
+(16, 'Mauri & Kenna | Monument Valley, UT', 'Portofolio_Pictures/Weddings/p16.png', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -202,6 +237,13 @@ ALTER TABLE `portofolio_nature`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `portofolio_weddings`
+--
+ALTER TABLE `portofolio_weddings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `last_edit_by` (`last_edited_by`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -230,10 +272,26 @@ ALTER TABLE `portofolio_nature`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `portofolio_weddings`
+--
+ALTER TABLE `portofolio_weddings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `portofolio_weddings`
+--
+ALTER TABLE `portofolio_weddings`
+  ADD CONSTRAINT `portofolio_weddings_ibfk_1` FOREIGN KEY (`last_edited_by`) REFERENCES `web15`.`user` (`id`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
