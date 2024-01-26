@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2024 at 03:00 PM
+-- Generation Time: Jan 26, 2024 at 03:07 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -172,7 +172,12 @@ INSERT INTO `user` (`id`, `name`, `surname`, `age`, `email`, `password`, `roli`)
 (2, 'Drena', 'Muja', 28, 'drenamuja@gmail.com', 'drena123', 'admin'),
 (3, 'Arta', 'Selimaj', 22, 'artas@gmail.com', 'arta99', 'user'),
 (4, 'Amar', 'Cenaj', 19, 'andicenaj@gmail.com', 'cenaj567', 'user'),
-(9, 'Nora', 'Kurti', 22, 'norak@gmail.com', 'norak11', 'user');
+(9, 'Nora', 'Kurti', 22, 'norak@gmail.com', 'norak11', 'user'),
+(11, 'Petrit', 'Shoshi', 30, 'petritsh@gmail.com', 'shoshi12', 'user'),
+(13, 'Teuta', 'Dervishi', 26, 'teutad@gmail.com', 'teuta44', 'user'),
+(14, 'Liamra', 'Maraj', 29, 'liamra@gmail.com', 'liamra99', 'user'),
+(17, 'Delfina', 'Krasniqi', 30, 'delfinak@gmail.com', 'delfi22', 'user'),
+(21, 'Erion', 'Mustafa', 22, 'erion@gmail.com', 'eri17', 'user');
 
 --
 -- Indexes for dumped tables
@@ -228,7 +233,7 @@ ALTER TABLE `portofolio_nature`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
