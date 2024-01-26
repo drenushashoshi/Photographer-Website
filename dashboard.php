@@ -112,28 +112,34 @@ if ($_SESSION['roli'] == "admin") {
 
         foreach ($portofolioData as $portofolioItem):
             $lastEditedById = $portofolioItem['last_edited_by'];
+            $addedById = $portofolioItem['added_by'];
 
             $lastEditedByUser = $userRepository->getUserById($lastEditedById);
+            $addedByUser = $userRepository->getUserById($addedById);
+
+            echo "
+        <tr>
+            <td>{$portofolioItem['id']}</td>
+            <td>{$portofolioItem['image_path']}</td>
+            <td>{$portofolioItem['description']}</td>
+            <td>";
 
             if ($lastEditedByUser) {
-                echo "
-            <tr>
-                <td>{$portofolioItem['id']}</td>
-                <td>{$portofolioItem['image_path']}</td>
-                <td>{$portofolioItem['description']}</td>
-                <td>{$lastEditedByUser['id']}</td>
-            </tr>
-        ";
+                echo "{$lastEditedByUser['id']}";
             } else {
-                echo "
-            <tr>
-                <td>{$portofolioItem['id']}</td>
-                <td>{$portofolioItem['image_path']}</td>
-                <td>{$portofolioItem['description']}</td>
-                <td>User not found</td>
-            </tr>
-        ";
+                echo "No one edited";
             }
+
+            echo "</td>
+            <td>";
+
+            if ($addedByUser) {
+                echo "{$addedByUser['id']}";
+            } else {
+                echo "Added through database";
+            }
+            echo "</td>
+        </tr>";
         endforeach;
 
         ?>
@@ -356,7 +362,7 @@ if ($_SESSION['roli'] == "admin") {
 
                 $dbConnection = new DatabaseConnection();
                 $conn = $dbConnection->startConnection();
-                
+
                 if ($conn) {
                     $query = "SELECT * FROM newsLetter_subscribers";
                     $stmt = $conn->query($query);

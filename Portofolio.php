@@ -20,10 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["add"]) && isAdmin()) {
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
-
+    
+        $addedBy = $_SESSION['id']; 
+    
         $conn = (new DatabaseConnection())->startConnection();
-        $stmt = $conn->prepare("INSERT INTO portofolio (description, image_path) VALUES (?, ?)");
-        $stmt->execute([$description, $imagePath]);
+        $stmt = $conn->prepare("INSERT INTO portofolio (description, image_path, added_by) VALUES (?, ?, ?)");
+        $stmt->execute([$description, $imagePath, $addedBy]);
+
+        $lastInsertedId = $conn->lastInsertId();
+    echo "The last inserted ID is: $lastInsertedId";
     }
 
     if (isset($_POST["delete"]) && isAdmin()) {
@@ -40,12 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $description = $_POST["description"];
         $imagePath = $_POST["image_path"];
     
-        // Assume you have user information in your session
-        $lastEditedBy = $_SESSION['id']; // Adjust this based on your session structure
+        $lastEditedBy = $_SESSION['id']; 
         echo "User ID in session: $lastEditedBy";
         $conn = (new DatabaseConnection())->startConnection();
     
-        // Update the portofolio item and set last_edited_by
         $stmt = $conn->prepare("UPDATE portofolio SET description = ?, image_path = ?, last_edited_by = ? WHERE id = ?");
         if ($stmt->execute([$description, $imagePath, $lastEditedBy, $itemId])) {
             echo "Update successful";
