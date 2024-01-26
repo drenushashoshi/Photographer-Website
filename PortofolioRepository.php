@@ -58,6 +58,22 @@ class PortofolioRepository
         return $portofolioNature;
     }
 
+    public function getAllWeddings()
+    {
+        $sql = "SELECT * FROM portofolio_weddings";
+        $statement = $this->connection->query($sql);
+
+        $portofolioWeddings = [];
+
+        if ($statement->rowCount() > 0) {
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $portofolioWeddings[] = $row;
+            }
+        }
+
+        return $portofolioWeddings;
+    }
+
 
     public function insertPortofolio($description, $imagePath, $lastEditedBy)
     {

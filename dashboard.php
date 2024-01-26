@@ -93,7 +93,6 @@ if ($_SESSION['roli'] == "admin") {
         foreach ($portofolioData as $portofolioItem):
             $lastEditedById = $portofolioItem['last_edited_by'];
 
-            // Check if user is retrieved successfully
             $lastEditedByUser = $userRepository->getUserById($lastEditedById);
 
             if ($lastEditedByUser) {
@@ -106,7 +105,6 @@ if ($_SESSION['roli'] == "admin") {
             </tr>
         ";
             } else {
-                // Handle the case when the user is not found
                 echo "
             <tr>
                 <td>{$portofolioItem['id']}</td>
@@ -172,7 +170,7 @@ if ($_SESSION['roli'] == "admin") {
 
     </table>
 
-    <h3 style="margin-top: 100px">PORTFOLIO-COUPLES ITEMS:</h3>
+    <h3 style="margin-top: 100px">PORTFOLIO-NATURE ITEMS:</h3>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -195,6 +193,54 @@ if ($_SESSION['roli'] == "admin") {
 
             $lastEditedByUser = $userRepository->getUserById($lastEditedById);
 
+            if ($lastEditedByUser) {
+                echo "
+            <tr>
+                <td>{$portofolioItem['id']}</td>
+                <td>{$portofolioItem['image_path']}</td>
+                <td>{$portofolioItem['description']}</td>
+                <td>{$lastEditedByUser['id']}</td>
+            </tr>
+        ";
+            } else {
+                echo "
+            <tr>
+                <td>{$portofolioItem['id']}</td>
+                <td>{$portofolioItem['image_path']}</td>
+                <td>{$portofolioItem['description']}</td>
+                <td>User not found</td>
+            </tr>
+        ";
+            }
+        endforeach;
+
+        ?>
+
+
+    </table>
+
+    <h3 style="margin-top: 100px">PORTFOLIO-WEDDINGS ITEMS:</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>IMAGE PATH</th>
+            <th>DESCRIPTION</th>
+            <th>Last Edited By</th>
+        </tr>
+
+        <?php
+        include_once "PortofolioRepository.php";
+        include_once "userRepository.php";
+
+
+        $portofolioRepository = new PortofolioRepository();
+        $portofolioData = $portofolioRepository->getAllWeddings();
+        $userRepository = new UserRepository();
+
+        foreach ($portofolioData as $portofolioItem):
+            $lastEditedById = $portofolioItem['last_edited_by'];
+
+            $lastEditedByUser = $userRepository->getUserById($lastEditedById);
             if ($lastEditedByUser) {
                 echo "
             <tr>
