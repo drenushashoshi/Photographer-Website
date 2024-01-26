@@ -119,10 +119,10 @@ $conn = null;
         <div class="categories">
             <ul class="list">
                 <li id="categ">Categories</li>
-                <li><a href="Portofolio.html">All</a> </li>
-                <li><a href="Portofolio_Wedding.html">Weddings</a> </li>
-                <li><a href="Portofolio-Couples.html">Couples</a></li>
-                <li><a href="Portofolio-Nature.html">Nature</a> </li>
+                <li><a href="Portofolio.php">All</a> </li>
+                <li><a href="Portofolio_Wedding.php">Weddings</a> </li>
+                <li><a href="Portofolio-Couples.php">Couples</a></li>
+                <li><a href="Portofolio-Nature.php">Nature</a> </li>
             </ul>
         </div>
 
@@ -162,28 +162,7 @@ $conn = null;
             <?php endif; ?>
         </div>
     </main>
-    <footer>
-        <br>
-        <div class="logot">
-            <a href=""><img src="instagram1.png" alt="" width="40px" height="40px"></a>
-            <a href=""><img src="Facebook1.png" alt="" width="60px" height="40px"></a>
-            <a href=""><img src="Pinterest1.png" alt="" width="40px" height="40px"></a>
-        </div>
-        <div class="footermain">
-            <div class="adresa">
-                <p>CONTACT</p><br>
-                <p>865-323-7622</p><br>
-                <p>eladoe@gmail.com</p><br>
-                <hr><br>
-                Colorado, Arizona and Beyond
-                <p></p><br>
-            </div>
-            <div class="footerfoto">
-                <img src="footer.png" alt="">
-            </div>
-        </div>
-        <p>Privacy Policy</p><br>
-    </footer>
+    <?php include('footer.php') ?>
     <script>
         function openEditModal(itemId) {
             var item = <?php echo json_encode($portofolioData); ?>;
