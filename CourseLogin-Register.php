@@ -135,28 +135,7 @@
         <img src="CourseLogin_Pictures/CourseLogin1.jpg" alt="">
         <img src="CourseLogin_Pictures/CourseLogin3.jpg" alt="">
     </div>
-    <footer>
-        <br>
-        <div class="logot">
-            <a href=""><img src="instagram1.png" alt="" width="40px" height="40px"></a>
-            <a href=""><img src="Facebook1.png" alt="" width="60px" height="40px"></a>
-            <a href=""><img src="Pinterest1.png" alt="" width="40px" height="40px"></a>
-        </div>
-        <div class="footermain">
-            <div class="adresa">
-                <p>CONTACT</p><br>
-                <p>865-323-7622</p><br>
-                <p>eladoe@gmail.com</p><br>
-                <hr><br>
-                Colorado, Arizona and Beyond
-                <p></p><br>
-            </div>
-            <div class="footerfoto">
-                <img src="footer.png" alt="">
-            </div>   
-        </div>
-        <p>Privacy Policy</p><br>
-    </footer>
+    <?php include('footer.php') ?>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

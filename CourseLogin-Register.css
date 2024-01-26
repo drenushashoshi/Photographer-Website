@@ -102,20 +102,6 @@ footer{
     align-items: center;
     font-size: 15px;
 }
-.footermain{
-    display: flex;
-    justify-content: space-between; 
-    width: 90%;
-}
-.adresa{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    justify-content: center;
-    font-size: 17px;
-    justify-content: space-around;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
 
 
 @media (max-width: 768px) {

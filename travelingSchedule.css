@@ -227,39 +227,6 @@ input[type=submit] {
 input[type=submit]:hover {
     opacity: 0.8;
 }
-footer {
-    background-color: rgb(167, 140, 104);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    position: relative;
-    z-index: 2;
-}
-
-.footermain {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-}
-
-.adresa {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    justify-content: center;
-    font-size: 17px;
-    justify-content: space-around;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.footerfoto {
-    margin-left: 20px;
-    display: flex;
-    width: 170px;
-    align-items: flex-end;
-}
 @media screen and (max-width: 1000px) {
     .pictures1,.pictures2{
        display: none;

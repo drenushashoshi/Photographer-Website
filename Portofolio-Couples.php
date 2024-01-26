@@ -130,26 +130,7 @@ $conn = null;
             <?php endif; ?>
         </div>
     </main>
-    <footer>
-        <br>
-        <div class="logot">
-            <img src="instagram1.png" alt="">
-            <img src="Facebook1.png" alt="">
-            <img src="Pinterest1.png" alt="">
-        </div>
-        <div class="footermain">
-            <div class="adresa">
-                <p>CONTACT</p>
-                <p>865-323-7622</p>
-                <p>eladoe@gmail.com</p>
-                <hr>
-                <p>Colorado, Arizona and Beyond</p>
-            </div>
-            <div class="footerfoto">
-                <img src="footer.png" alt="">
-            </div>   
-        </div><br><br>
-    </footer>
+    <?php include('footer.php') ?>
     <script>
         function openEditModal(itemId) {
             var item = <?php echo json_encode($portofolioData); ?>;

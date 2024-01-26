@@ -118,19 +118,7 @@ if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
       <button type="submit" onclick="validateForm(event)">Submit</button>
     </form>
   </main>
-  <footer>
-    <div class="contact-info">
-      <h3>Contact Information</h3>
-      <p>Email: example@example.com</p>
-      <p>Phone: +1 234 567 890</p>
-    </div>
-    <div class="social-icons">
-      <h3>Follow Me</h3>
-      <a href="#"><img src="Booking_Pictures/FacebookIcon.png" alt="Facebook"></a>
-      <a href="#"><img src="Booking_Pictures/InstagramIcon.png" alt="Instagram"></a>
-      <a href="#"><img src="Booking_Pictures/TwitterIcon.png" alt="Twitter"></a>
-    </div>
-  </footer>
+  <?php include('footer.php') ?>
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
