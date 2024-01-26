@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 11:48 PM
+-- Generation Time: Jan 26, 2024 at 03:00 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,39 @@ SET time_zone = "+00:00";
 --
 -- Database: `web_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_form_data`
+--
+
+CREATE TABLE `contact_form_data` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `fiance_first_name` varchar(50) NOT NULL,
+  `fiance_last_name` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `event_date` date NOT NULL,
+  `event_type` varchar(20) NOT NULL,
+  `event_location` varchar(255) NOT NULL,
+  `guests` varchar(20) NOT NULL,
+  `love_story` text NOT NULL,
+  `contact_method` varchar(20) NOT NULL,
+  `how_found` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_form_data`
+--
+
+INSERT INTO `contact_form_data` (`id`, `first_name`, `last_name`, `fiance_first_name`, `fiance_last_name`, `email`, `phone`, `event_date`, `event_type`, `event_location`, `guests`, `love_story`, `contact_method`, `how_found`) VALUES
+(7, 'Nora', 'Krasniqi', 'Arton ', 'Hoti', 'norak@gmail.com', '044500500', '2024-12-30', 'wedding', 'Diamond Hotel', '200-300', 'We are engaged and planning to get married in Decemeber', 'email', 'google'),
+(8, 'Bleard', 'Kadrija', 'Serxhan', 'Kadrija', 'bkadrija@gmail.com', '044430223', '2024-04-30', 'engagement', 'Restaurant Lulja', '100-200', 'We are planning a big engagement party.', 'phone', 'referral'),
+(9, 'Arta', 'Selimaj', 'Arton ', 'Selmani', 'artas@gmail.com', '045667452', '2024-06-05', 'other', 'Restaurant Luxury', '20-50', 'I have a birthday party and i want a photoshoot ', 'email', 'social-media'),
+(10, 'Manushaqe', 'Gashi', 'Bardh', 'Blakaj', 'mana@gmail.com', '045667452', '2024-12-31', 'other', 'Cloud Lounge', '20-50', 'New Year\'s party with my fiance and our friends', 'phone', 'referral');
 
 -- --------------------------------------------------------
 
@@ -146,6 +179,12 @@ INSERT INTO `user` (`id`, `name`, `surname`, `age`, `email`, `password`, `roli`)
 --
 
 --
+-- Indexes for table `contact_form_data`
+--
+ALTER TABLE `contact_form_data`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `portofolio_couples`
 --
 ALTER TABLE `portofolio_couples`
@@ -166,6 +205,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `contact_form_data`
+--
+ALTER TABLE `contact_form_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `portofolio_couples`
