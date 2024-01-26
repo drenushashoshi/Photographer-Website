@@ -2,6 +2,26 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    function isSessionTimedOut() {
+        $timeout = 3600; 
+        $currentTime = time();
+
+        if (isset($_SESSION['loginTime']) && ($currentTime - $_SESSION['loginTime']) > $timeout) {
+            error_log("Session timed out. Elapsed time: " . ($currentTime - $_SESSION['loginTime']) . " seconds");
+            session_unset();
+            session_destroy();
+            return true;
+        }
+        $_SESSION['loginTime'] = $currentTime;
+
+        return false;
+    }
+
+  
+    if (isSessionTimedOut()) {
+        header("Location: CourseLogin.php");
+        exit();
+    }
     
     $hide = "hide"; 
     

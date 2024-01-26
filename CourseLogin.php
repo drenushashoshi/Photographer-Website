@@ -1,9 +1,31 @@
 <?php
 require_once 'databaseConnection.php'; 
-
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+
+    function isSessionTimedOut() {
+        $timeout = 3600; 
+        $currentTime = time();
+
+        if (isset($_SESSION['loginTime']) && ($currentTime - $_SESSION['loginTime']) > $timeout) {
+            error_log("Session timed out. Elapsed time: " . ($currentTime - $_SESSION['loginTime']) . " seconds");
+            session_unset();
+            session_destroy();
+            return true;
+        }
+        $_SESSION['loginTime'] = $currentTime;
+
+        return false;
+    }
+
+  
+    if (isSessionTimedOut()) {
+        header("Location: CourseLogin.php");
+        exit();
+    }
+
+    
     if(isset($_SESSION['registration_success']) && $_SESSION['registration_success']) {
         echo '<script>alert("Successfully registered! Login down below.");</script>';
         unset($_SESSION['registration_success']);
@@ -34,7 +56,6 @@ if (isset($_POST['loginbtn'])) {
                 $stmt->execute();
 
                 if ($stmt->rowCount() > 0) {
-                    session_start();
                     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     $_SESSION['id'] = $user['id'];
@@ -42,7 +63,7 @@ if (isset($_POST['loginbtn'])) {
                     $_SESSION['password'] = $password;
                     $_SESSION['roli'] = $user['roli'];
                     $_SESSION['admin'] = ($user['roli'] === 'admin');
-                    $_SESSION['loginTime'] = date("H:i:s");
+                    $_SESSION['loginTime'] = time(); 
 
                     header("location: Course.php");
                     exit();
