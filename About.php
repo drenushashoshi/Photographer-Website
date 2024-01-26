@@ -112,7 +112,7 @@
             <h3>AN ELA IN HER NATURAL HABITAT</h3>
             <div class="button">
 
-                <button><a href="travelingSchedule.html">My Travel Schedule</a></button>
+                <button><a href="travelingSchedule.php">My Travel Schedule</a></button>
             </div>
         </div>
         <div class="best">
@@ -182,7 +182,7 @@
 
         <div class="work">
         <h1 class="b">INTERESTED IN WORKING TOGETHER?</h1><br><br><br>
-        <a href="Booking.html"><button class="butoni2">Contact me</button></a>
+        <a href="Booking.php"><button class="butoni2">Contact me</button></a>
         </div>
         
         <?php

@@ -384,7 +384,7 @@ body {
 }
 @media screen and (max-width: 1000px) {
     body {
-        font-size: 14px; /* Adjust the font size for smaller screens */
+        font-size: 14px; 
     }
 
     header {
@@ -527,6 +527,7 @@ body {
 
     .faq-container {
         max-width: 100%; 
+        overflow: hidden;
     }
 
     .adresa,
@@ -549,7 +550,6 @@ body {
         font-size: xx-small;
         margin: 1px;
     }
-
 
 
     .helptxt {

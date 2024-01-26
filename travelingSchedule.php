@@ -8,6 +8,44 @@ $hide = "hide";
 if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
     $hide = "";
 }
+
+require('databaseConnection.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["mail"]);
+
+    $nameRegex = '/^[A-Z][a-zA-Z]{2,}$/';
+    $emailRegex = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
+
+    if (!preg_match($nameRegex, $name)) {
+        $errors['name'] = 'Invalid name.';
+    }
+
+    if (!preg_match($emailRegex, $email)) {
+        $errors['email'] = 'Invalid email.';
+    }
+
+    $dbConnection = new DatabaseConnection();
+    $conn = $dbConnection->startConnection();
+
+    if ($conn) {
+        try {
+            $query = "INSERT INTO newsLetter_subscribers (name, email) VALUES (:name, :email)";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+
+            echo '<script>alert("Form submitted successfully!");</script>';
+        } catch (PDOException $e) {
+            echo '<script>alert("Error submitting form. Please try again.\\n\\n\\n*p.s Check if you already used this email to subscribe");</script>';
+            error_log("Error: " . $e->getMessage(), 0);
+        } finally {
+            $dbConnection = null;
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +86,7 @@ if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
                     please ask me!</p>
                 <p>If one of these places jumps out at you as an amazing place to get hitched —I'll be there and can
                     photograph your day without any travel fees!</p>
-                <button class="button"><a href="Booking.html">TAKE ME WITH YOU</a></button>
+                <button class="button"><a href="Booking.php">TAKE ME WITH YOU</a></button>
             </div>
             <div class="pictures2">
                 <img src="Travel_Pictures/t4.jpg" alt="">
@@ -69,11 +107,11 @@ if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
             echo '<p>' . $location . '</p>';
             echo '<h4>' . $date . '</h4>';
         }
-        echo '<button class="button"><a href="Booking.html">CONTACT</a></button>';
+        echo '<button class="button"><a href="Booking.php">CONTACT</a></button>';
         echo '</div>';
         echo '</div>';
         ?>
-        <form id="newsletter-form">
+        <form id="newsletter-form" method="post" onsubmit="return validateForm()">
             <div class="container">
                 <h2>Sign-Up for our Newsletter</h2>
                 <p>Through them you'll know for any changes in my schedule</p>
@@ -81,14 +119,18 @@ if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
 
             <div class="container" style="background-color: white">
                 <input type="text" placeholder="Name" name="name" id="name" required>
-                <div class="error-message" id="name-error"></div>
+                <div class="error-message" id="name-error">
+                    <?php echo isset($errors['name']) ? $errors['name'] : ''; ?>
+                </div>
 
                 <input type="text" placeholder="Email address" name="mail" id="mail" required>
-                <div class="error-message" id="mail-error"></div>
+                <div class="error-message" id="mail-error">
+                    <?php echo isset($errors['email']) ? $errors['email'] : ''; ?>
+                </div>
             </div>
 
             <div class="container">
-                <input type="submit" value="Subscribe" onclick="return validateForm()">
+                <input type="submit" value="Subscribe">
             </div>
         </form>
     </main>
@@ -108,15 +150,14 @@ if (isset($_SESSION['roli']) && $_SESSION['roli'] == "admin") {
             nameError.innerText = '';
             if (!nameRegex.test(name)) {
                 nameError.innerText = '*Invalid name.';
-                return;
+                return false;
             }
             if (!mailRegex.test(mail)) {
                 emailError.innerText = '*Invalid email.';
-                return;
+                return false;
             }
 
-            alert('Form submitted successfully!');
-            return;
+            return true;
         }
     </script>
 </body>

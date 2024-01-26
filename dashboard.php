@@ -320,6 +320,42 @@ if ($_SESSION['roli'] == "admin") {
 
     </table>
 
+    <div class="dashboard">
+        <h1>Newsletter Subscribers</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                require_once('databaseConnection.php');
+
+                $dbConnection = new DatabaseConnection();
+                $conn = $dbConnection->startConnection();
+                
+                if ($conn) {
+                    $query = "SELECT * FROM newsLetter_subscribers";
+                    $stmt = $conn->query($query);
+                    $subscribers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
+                if ($conn) {
+                    foreach ($subscribers as $subscriber) {
+                        echo '<tr>';
+                        echo '<td>' . $subscriber['id'] . '</td>';
+                        echo '<td>' . $subscriber['name'] . '</td>';
+                        echo '<td>' . $subscriber['email'] . '</td>';
+                        echo '</tr>';
+                    }
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+
 </body>
 
 </html>

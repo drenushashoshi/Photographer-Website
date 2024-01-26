@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2024 at 04:12 PM
+-- Generation Time: Jan 26, 2024 at 05:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -53,6 +53,27 @@ INSERT INTO `contact_form_data` (`id`, `first_name`, `last_name`, `fiance_first_
 (8, 'Bleard', 'Kadrija', 'Serxhan', 'Kadrija', 'bkadrija@gmail.com', '044430223', '2024-04-30', 'engagement', 'Restaurant Lulja', '100-200', 'We are planning a big engagement party.', 'phone', 'referral'),
 (9, 'Arta', 'Selimaj', 'Arton ', 'Selmani', 'artas@gmail.com', '045667452', '2024-06-05', 'other', 'Restaurant Luxury', '20-50', 'I have a birthday party and i want a photoshoot ', 'email', 'social-media'),
 (10, 'Manushaqe', 'Gashi', 'Bardh', 'Blakaj', 'mana@gmail.com', '045667452', '2024-12-31', 'other', 'Cloud Lounge', '20-50', 'New Year\'s party with my fiance and our friends', 'phone', 'referral');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter_subscribers`
+--
+
+CREATE TABLE `newsletter_subscribers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `newsletter_subscribers`
+--
+
+INSERT INTO `newsletter_subscribers` (`id`, `name`, `email`) VALUES
+(1, 'Ema', 'ema@gmail.com'),
+(9, 'Drena', 'Drena@hotmail.com'),
+(10, 'Leta', 'Leta@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -225,6 +246,13 @@ ALTER TABLE `contact_form_data`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `newsletter_subscribers`
+--
+ALTER TABLE `newsletter_subscribers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indexes for table `portofolio_couples`
 --
 ALTER TABLE `portofolio_couples`
@@ -257,6 +285,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `contact_form_data`
 --
 ALTER TABLE `contact_form_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `newsletter_subscribers`
+--
+ALTER TABLE `newsletter_subscribers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
