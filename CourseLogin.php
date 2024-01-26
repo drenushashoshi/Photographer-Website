@@ -4,6 +4,10 @@ require_once 'databaseConnection.php';
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    if(isset($_SESSION['registration_success']) && $_SESSION['registration_success']) {
+        echo '<script>alert("Successfully registered! Login down below.");</script>';
+        unset($_SESSION['registration_success']);
+    }
 
     $hide = "hide"; 
 
@@ -79,11 +83,9 @@ if (isset($_POST['loginbtn'])) {
             <div class="content">
                 <div class="input-field">
                     <input type="text" id="email" name="email" placeholder="Email" autocomplete="email">
-                    <div class="error-message" id="emailError"></div>
                 </div>
                 <div class="input-field">
                     <input type="password" id="password" name="password" placeholder="Password" autocomplete="new-password">
-                    <div class="error-message" id="passwordError"></div>
                 </div>
             </div>
             <div class="action">

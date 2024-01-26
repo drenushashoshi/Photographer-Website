@@ -42,13 +42,15 @@
            $user=new User($name, $surname, $age, $email, $password);
            $userRepository = new UserRepository();
            $userRepository->insertUser($user);
-           header('location:Course.php');
+           $_SESSION['registration_success'] = true;
+           header('location:CourseLogin.php');
+           exit();
         }
         
         ?>
    </div>
     <div class="login-form">
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+        <form id="registrationForm" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
             <h1>Hello! You can register to the course here:</h1>
             <div class="content">
@@ -157,57 +159,67 @@
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const registrationForm = document.getElementById('registrationForm');
+
+            registrationForm.addEventListener('submit', function (event) {
+                if (!validateForm()) {
+                    event.preventDefault(); // Prevent form submission if validation fails
+                }
+            });
+        });
+
+    function validateForm() {
+        let nameInput = document.getElementById('name');
+        let nameError = document.getElementById('nameError');
+
+        let surnameInput = document.getElementById('surname');
+        let surnameError = document.getElementById('surnameError');
+
+        let ageInput = document.getElementById('age');
+        let ageError = document.getElementById('ageError');
+
+        let emailInput = document.getElementById('email');
+        let emailError = document.getElementById('emailError');
+
+        let passwordInput = document.getElementById('password');
+        let passwordError = document.getElementById('passwordError');
+
+        nameError.innerText = '';
+        surnameError.innerText = '';
+        ageError.innerText = '';
+        emailError.innerText = '';
+        passwordError.innerText = '';
+
         let nameRegex = /^[A-Z][a-z]{2,}$/;
-        let surnameRegex=/^[A-Z][a-z]{2,}$/;
-        let ageRegex=/^(1[4-9]|[2-4]\d|50)$/;
-        let emailRegex= /[a-zA-Z.-_]+@+[a-z]+\.+[a-z]{2,3}$/;
-        let passwordRegex=/^(?=.*\d.*\d)[A-Za-z\d]{5,8}$/;
+        let surnameRegex = /^[A-Z][a-z]{2,}$/;
+        let ageRegex = /^(1[4-9]|[2-4]\d|50)$/;
+        let emailRegex = /[a-zA-Z.-_]+@+[a-z]+\.+[a-z]{2,3}$/;
+        let passwordRegex = /^(?=.*\d.*\d)[A-Za-z\d]{5,8}$/;
 
-        function validateForm(event){
-            event.preventDefault(); 
-            let nameInput = document.getElementById('name');
-            let nameError = document.getElementById('nameError');
-
-            let surnameInput = document.getElementById('surname');
-            let surnameError = document.getElementById('surnameError');
-
-            let ageInput=document.getElementById('age');
-            let ageError=document.getElementById('ageError');
-
-            let emailInput =document.getElementById('email');
-            let emailError=document.getElementById('emailError');
-
-            let passwordInput =document.getElementById('password');
-            let passwordError=document.getElementById('passwordError');
-
-            nameError.innerText = '';
-            surnameError.innerText = '';
-            ageError.innerText='';
-            emailError.innerText='';
-            passwordError.innerText='';
-
-            if(!nameRegex.test(nameInput.value)){
-                nameError.innerText = '*invalid name, must begin with a capital letter';
-                return;
-            }
-            if(!surnameRegex.test(surnameInput.value)){
-                surnameError.innerText = '*invalid surname, must begin with a capital letter';
-                return;
-            }
-            if(!ageRegex.test(ageInput.value)){
-                ageError.innerText='*You must be between the age of 14-50';
-                return;
-            }
-            if(!emailRegex.test(emailInput.value)){
-                emailError.innerText='*Invalid email';
-                return;
-            }
-            if(!passwordRegex.test(passwordInput.value)){
-                passwordError.innerText='*Length of the password must be 5-8 characters and include at least 2 numbers';
-                return;
-            }
-            alert('Succesfully registered!');
+        if (!nameRegex.test(nameInput.value)) {
+            nameError.innerText = '*invalid name, must begin with a capital letter';
+            return false;
         }
+        if (!surnameRegex.test(surnameInput.value)) {
+            surnameError.innerText = '*invalid surname, must begin with a capital letter';
+            return false;
+        }
+        if (!ageRegex.test(ageInput.value)) {
+            ageError.innerText = '*You must be between the age of 14-50';
+            return false;
+        }
+        if (!emailRegex.test(emailInput.value)) {
+            emailError.innerText = '*Invalid email';
+            return false;
+        }
+        if (!passwordRegex.test(passwordInput.value)) {
+            passwordError.innerText = '*Length of the password must be 5-8 characters and include at least 2 numbers';
+            return false;
+        }
+
+        return true;
+    }
     </script> 
 
 </body>
