@@ -46,8 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare("INSERT INTO portofolio (description, image_path, added_by) VALUES (?, ?, ?)");
         $stmt->execute([$description, $imagePath, $addedBy]);
 
-        $lastInsertedId = $conn->lastInsertId();
-    echo "The last inserted ID is: $lastInsertedId";
+        $lastInsertedId = $conn->lastInsertId();;
     }
 
     if (isset($_POST["delete"]) && isAdmin()) {

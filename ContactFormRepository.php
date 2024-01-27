@@ -31,7 +31,6 @@ class ContactFormRepository
         $sql = "UPDATE contact_form_data SET first_name = ?, last_name = ?, fiance_first_name = ?, fiance_last_name = ?, email = ?, phone = ?, event_date = ?, event_type = ?, event_location = ?, guests = ?, love_story = ?, contact_method = ?, how_found = ? WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
 
-        // Bind parameters
         $stmt->bindParam(1, $data['first_name']);
         $stmt->bindParam(2, $data['last_name']);
         $stmt->bindParam(3, $data['fiance_first_name']);

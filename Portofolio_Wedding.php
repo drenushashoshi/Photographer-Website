@@ -48,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$description, $imagePath, $addedBy]);
 
         $lastInsertedId = $conn->lastInsertId();
-    echo "The last inserted ID is: $lastInsertedId";
     }
 
     if (isset($_POST["delete"]) && isAdmin()) {

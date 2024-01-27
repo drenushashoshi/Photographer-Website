@@ -70,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         $stmt = $conn->prepare($sql);
         $stmt->execute([$firstName, $lastName, $fianceFirstName, $fianceLastName, $email, $phone, $eventDate, $eventType, $eventLocation, $guests, $loveStory, $contactMethod, $howFound]);
-        echo "Contact form data saved successfully!";
     } catch (PDOException $e) {
         echo "Error saving contact form data: " . $e->getMessage();
     }
