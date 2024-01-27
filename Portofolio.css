@@ -8,7 +8,6 @@ body {
     margin: 0px;
     box-sizing: border-box;
     width: 100%;
-    height: max-content;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -93,3 +92,14 @@ body {
     margin: auto;
     margin-bottom: 5%;
 }
+footer{
+    max-height: 277px;
+}
+footer p{
+    margin: 0px;
+    padding: 0px;
+}
+.footermain{
+    max-height: 335px;
+}
+

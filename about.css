@@ -6,9 +6,6 @@ html {
 body {
     box-sizing: border-box;
     width: 100%;
-    height: max-content;
-    overflow-x: hidden;
-    overflow-y: auto;
     margin: 0px;
 }
 
@@ -382,6 +379,17 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #666666;
 }
+footer{
+    max-height: 277px;
+}
+footer p{
+    margin: 0px;
+    padding: 0px;
+}
+.footermain{
+    max-height: 335px;
+}
+
 @media screen and (max-width: 1000px) {
     body {
         font-size: 14px; 
@@ -530,14 +538,6 @@ body {
         overflow: hidden;
     }
 
-    .adresa,
-    .footerfoto {
-        width: 100%; 
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
     .help ul {
         flex-direction: row;
         height: auto;
@@ -559,5 +559,15 @@ body {
     .helptxt div {
         width: 100%;
         margin: 10px 0;
+    }
+    footer{
+        max-height: 277px;
+    }
+    footer p{
+        margin: 0px;
+        padding: 0px;
+    }
+    .footermain{
+        max-height: 335px;
     }
 }

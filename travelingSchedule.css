@@ -6,7 +6,6 @@ html {
 body {
     box-sizing: border-box;
     width: 100%;
-    height: max-content;
     overflow-x: hidden;
     overflow-y: auto;
     margin: 0px;
@@ -227,6 +226,17 @@ input[type=submit] {
 input[type=submit]:hover {
     opacity: 0.8;
 }
+footer{
+    max-height: 277px;
+    margin-top: 5px;
+}
+footer p{
+    margin: 0px;
+    padding: 0px;
+}
+.footermain{
+    max-height: 335px;
+}
 @media screen and (max-width: 1000px) {
     .pictures1,.pictures2{
        display: none;
@@ -258,5 +268,4 @@ input[type=submit]:hover {
         margin-left: 20%;
 
     }
-
 }

@@ -142,3 +142,13 @@ button:hover {
 .logot{
     display: flex;
 }
+footer{
+    max-height: 277px;
+}
+footer p{
+    margin: 0px;
+    padding: 0px;
+}
+.footermain{
+    max-height: 335px;
+}
