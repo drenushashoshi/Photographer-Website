@@ -105,6 +105,7 @@ $conn = null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElaDoe-Portofolio</title>
     <link rel="stylesheet" href="Portofolio.css">
+    <link rel="stylesheet" href="PortofolioAdmin.css">
 </head>
 
 <body>
@@ -134,12 +135,6 @@ $conn = null;
 
                     <?php if (isAdmin()): ?>
                         <form method="post" action="">
-                            <input type="hidden" name="delete" value="1">
-                            <input type="hidden" name="item_id" value="<?php echo $portofolioItem['id']; ?>">
-                            <button type="submit">Delete</button>
-                        </form>
-
-                        <form method="post" action="">
                             <input type="hidden" name="update" value="1">
                             <input type="hidden" name="item_id" value="<?php echo $portofolioItem['id']; ?>">
                             <label for="editDescription">Description:</label>
@@ -147,6 +142,11 @@ $conn = null;
                             <label for="editImagePath">Image Path:</label>
                             <input type="text" name="image_path" value="<?php echo $portofolioItem['image_path']; ?>" required>
                             <button type="submit" name="update">Update Item</button>
+                        </form>
+                        <form method="post" action="">
+                            <input type="hidden" name="delete" value="1">
+                            <input type="hidden" name="item_id" value="<?php echo $portofolioItem['id']; ?>">
+                            <button type="submit">Delete</button>
                         </form>
                     <?php endif; ?>
                 </div>

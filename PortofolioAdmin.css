@@ -1,0 +1,54 @@
+button[type="submit"] {
+    width: 120px;
+    height: 40px;
+    background-color: #5A4B2E;
+    color: white;
+    border: 1px solid #5A4B2E;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #432f1e;
+}
+
+form[action=""] button[name="add"] {
+    width: 120px;
+    height: 40px;
+    background-color: #5A4B2E;
+    color: white;
+    border: 1px solid #5A4B2E;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+form[action=""] button[name="add"]:hover {
+    background-color: #432f1e;
+}
+
+form[action=""] label {
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+}
+
+form[action=""] input[type="text"] {
+    width: calc(100% - 20px);
+    height: 30px;
+    margin-top: 10px;
+}
+
+#closeEditModal {
+    width: 120px;
+    height: 40px;
+    background-color: #5A4B2E;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+#closeEditModal:hover {
+    background-color: #432f1e;
+}
