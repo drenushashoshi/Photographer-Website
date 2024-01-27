@@ -59,6 +59,7 @@ body {
     letter-spacing: 0.2px;
     outline: 0;
 }
+
 .action button:hover {
     background: #3c4d6d;
 }
@@ -94,30 +95,17 @@ body {
     margin-bottom: 20px;
     max-width: 470px;
 }
-footer{
-    background-color: rgb(167, 140, 104);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-}
 
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .login-form {
         width: 80%;
     }
+    .action button{
+        margin-left: 45px;
+    }
     .Teksti {
         padding: 12px 10px 0px 10px;
-    }
-
-    .footermain {
-        width: 100%;
-    }
-
-    .adresa {
-        width: 100%;
     }
 }
 

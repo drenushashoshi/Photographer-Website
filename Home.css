@@ -144,11 +144,13 @@
     margin-top: 20px;
     font-size: large;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
     .WhatTheySay {
         flex-direction: column;
     }
-
+    .WhatTheySay img{
+        align-self: center;
+    }
     .teksti {
         width: 90%;
         align-self: center;
@@ -223,7 +225,7 @@
 .abmt button:hover{
     background-color: rgb(117, 83, 83);
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1300px) {
     .AboutMe img {
         width: 100%;
         margin-left: 0;
@@ -260,12 +262,6 @@
     transition-duration: 0.4s;
     border: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-@media only screen and (max-width: 768px) {
-    .butoni2 {
-        width: 200px; 
-        max-width: 200px; 
-    }
 }
 .butoni2:hover{
     background-color: black;

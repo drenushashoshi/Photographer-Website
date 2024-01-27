@@ -37,7 +37,7 @@
     <title>ElaDoe-Course</title>
     <style>
     body {
-        background-color: darkgray;
+        background-color:  #F1EBE4;
     }
     .intro{
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -49,12 +49,13 @@
         width: 80%;
         border-collapse: collapse;
         margin-top: 20px;
-        font-family: Arial, sans-serif;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 600;
         margin-left: 10%;
     }
 
     th, td {
-      border: 1px solid #dddddd;
+      border: 1px solid black;
       text-align: left;
       padding: 12px;
     }
@@ -64,14 +65,23 @@
     } 
     .logout{
         border-radius: 20px;
-        background-color:darkgray;
-        outline-style: solid;
-        border-color: black;
+        background-color: burlywood;
+        font-weight: 550;
+        color: black;
+        border: none;
         width: 150px;
         height: 40px;
         margin-left: 43%;
         font-size: 18px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .logout:hover{
+        background-color: black;
+        color: white;
+        border: none;
     }
   </style>
 </head>
@@ -199,7 +209,9 @@
             </tr>
 
         </table><br><br>
-        <button class="logout"><a href="logout.php">Logout</a></button>
+        <a href="logout.php">
+            <button class="logout">Logout</button>
+        </a><br><br>
     </main>
     
 

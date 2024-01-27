@@ -5,11 +5,7 @@
 
 body {
     margin: 0px;
-    box-sizing: border-box;
     width: 100%;
-    height: max-content;
-    overflow-x: hidden;
-    overflow-y: auto;
 } 
 
 header {
@@ -137,4 +133,43 @@ header img {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: auto;
     margin-bottom: 5%;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    font-size: 15px;
+    background-color: rgb(167, 140, 104);
+    color: black;
+}
+.logot{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.logot img{
+    width: 40px;
+    height: 40px;
+}
+.footermain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+.adresa{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: flex-start;
+    font-size: 17px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.footerfoto{
+    width: 150px;
+    height: 150px;
 }
