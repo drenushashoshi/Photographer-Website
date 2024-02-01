@@ -6,17 +6,17 @@
     <title>ElaDoePhoto</title>
     <style>
     header {
-    display: flex;
-    position: fixed;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 66px;
-    background-color: white;
-    z-index: 1000;
-    overflow: hidden;
-    opacity: 0.5;
+        display: flex;
+        position: fixed;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 66px;
+        background-color: white;
+        z-index: 1000;
+        overflow: hidden;
+        opacity: 0.5;
     }
     header img{
         width: 15%;
@@ -50,10 +50,38 @@
     .hide {
     display: none;
     }  
+    @media only screen and (max-width: 1250px) {
+        .pages ul {
+            width: 100%;
+            margin-left: 75px;
+        }
+        .pages ul li {
+            margin-left: 50px;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        .pages ul {
+            width: 100%;
+            margin-left: 40px;
+        }
+        .pages ul li {
+            margin-left: 30px; 
+        }
+    }
+    @media only screen and (max-width: 700px) {
+        .pages ul {
+            width: 100%;
+            margin-left: 30px;
+        }
+        .pages ul li {
+            margin-left: 10px; 
+        }
+    }
+
     </style>
 </head>
-<body>
-<header>
+<body>    
+    <header>
         <img src="Logo.png" alt="Logo">
         <div class="pages">
             <ul>
@@ -65,6 +93,6 @@
                 <li> <a href="Booking.php">Booking</a></li>
             </ul>
         </div>
-    </header>
+    </header> 
 </body>
 </html>
