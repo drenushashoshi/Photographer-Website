@@ -252,6 +252,7 @@ footer p{
     .travelDate{
         text-align: center;
         padding: 0%;
+        padding-left: 25%;
     }
     .button{
         margin-bottom: 5%;
