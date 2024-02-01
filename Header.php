@@ -71,7 +71,7 @@
     @media only screen and (max-width: 700px) {
         .pages ul {
             width: 100%;
-            margin-left: 30px;
+            margin-left: 23px;
         }
         .pages ul li {
             margin-left: 10px; 
