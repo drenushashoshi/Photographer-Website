@@ -50,7 +50,7 @@
     .hide {
     display: none;
     }  
-    @media only screen and (max-width: 1250px) {
+    @media only screen and (max-width: 1300px) {
         .pages ul {
             width: 100%;
             margin-left: 75px;
@@ -59,7 +59,7 @@
             margin-left: 50px;
         }
     }
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 1000px) {
         .pages ul {
             width: 100%;
             margin-left: 40px;
@@ -68,13 +68,13 @@
             margin-left: 30px; 
         }
     }
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 750px) {
         .pages ul {
             width: 100%;
-            margin-left: 23px;
+            margin-left: 10px;
         }
         .pages ul li {
-            margin-left: 10px; 
+            margin-left: 5px; 
         }
     }
 

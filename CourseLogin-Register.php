@@ -163,7 +163,7 @@
 
             registrationForm.addEventListener('submit', function (event) {
                 if (!validateForm()) {
-                    event.preventDefault(); // Prevent form submission if validation fails
+                    event.preventDefault(); 
                 }
             });
         });
