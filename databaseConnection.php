@@ -1,13 +1,14 @@
 <?php
      class DatabaseConnection{
         private $host = "localhost";
-        private $username = "root";
-        private $password = "";
+        private $username = "postgres"; // default PostgreSQL username
+        private $password = "postgres"; // set your PostgreSQL password
         private $database = "web_project";
+        private $port = "5432"; // default PostgreSQL port
 
      function startConnection(){
          try{
-             $conn = new PDO("mysql:host=$this->host;dbname=$this->database", $this->username, $this->password);
+             $conn = new PDO("pgsql:host=$this->host;port=$this->port;dbname=$this->database", $this->username, $this->password);
              $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            
              if(!$conn){
